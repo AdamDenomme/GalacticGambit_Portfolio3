@@ -12,25 +12,25 @@ public class interactionMenu : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKey(KeyCode.Alpha1))
+        if (Input.GetKeyDown(KeyCode.Alpha1))
         {
             StartCoroutine(highlightOnClick(slotList[0]));
             doAction(actionList[0]);
         }
 
-        if (Input.GetKey(KeyCode.Alpha2))
+        if (Input.GetKeyDown(KeyCode.Alpha2))
         {
             StartCoroutine(highlightOnClick(slotList[1]));
             doAction(actionList[1]);
         }
 
-        if (Input.GetKey(KeyCode.Alpha3))
+        if (Input.GetKeyDown(KeyCode.Alpha3))
         {
             StartCoroutine(highlightOnClick(slotList[2]));
             doAction(actionList[2]);
         }
 
-        if (Input.GetKey(KeyCode.Alpha4))
+        if (Input.GetKeyDown(KeyCode.Alpha4))
         {
             StartCoroutine(highlightOnClick(slotList[3]));
             doAction(actionList[3]);

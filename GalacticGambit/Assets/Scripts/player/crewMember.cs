@@ -67,6 +67,7 @@ public class crewMember : MonoBehaviour
         IInteractable interactable;
         if(other.TryGetComponent(out interactable))
         {
+            Debug.Log("Interactable!");
             interactable.onInteractable(true);
             selectedInteraction = interactable;
         }

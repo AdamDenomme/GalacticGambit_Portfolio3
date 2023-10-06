@@ -664,7 +664,7 @@ ParticleSystem:
   ShapeModule:
     serializedVersion: 6
     enabled: 1
-    type: 4
+    type: 0
     angle: 76.46
     length: 5
     boxThickness: {x: 0, y: 0, z: 0}
@@ -3819,9 +3819,9 @@ ParticleSystem:
       properties: 0
       emitProbability: 1
   LightsModule:
-    enabled: 0
-    ratio: 0
-    light: {fileID: 0}
+    enabled: 1
+    ratio: 1
+    light: {fileID: 961070533824726368, guid: bbeabcc087e9da24394bbd6f3538551b, type: 3}
     randomDistribution: 1
     color: 1
     range: 1

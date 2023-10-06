@@ -11,7 +11,8 @@ public class shipManager : MonoBehaviour, IDamage
     [SerializeField] List<GameObject> thrusters;
 
     [Header("--- Ship Stats ---")]
-    [SerializeField] int health;
+    int health;
+    [SerializeField] int maxHealth;
 
     [Header("--- Power System ---")]
     [SerializeField] Image powerAvailableIndicator;
@@ -24,13 +25,18 @@ public class shipManager : MonoBehaviour, IDamage
     float reservePower;
     float reservePowerCapacity;
 
+    [Header("--- Hull ---")]
+    [SerializeField] Image hullIndicator;
+    [SerializeField] TMP_Text hullText;
+
     [Header("--- Sub Systems ---")]
     [SerializeField] pilotSeat pilotSeat;
     //public shipController shipController;
 
     [Header("--- Shield System ---")]
-    [SerializeField] GameObject shieldIndicator;
-
+    [SerializeField] shield shield;
+    [SerializeField] Image shieldIndicator;
+    [SerializeField] TMP_Text shieldText;
     //Applied when a subsystem is manned by a crew member.
     [Header("--- Modifiers ---")]
     float shieldModifier;
@@ -45,6 +51,7 @@ public class shipManager : MonoBehaviour, IDamage
     void Awake()
     {
         instance = this;
+        health = maxHealth;
     }
 
     private void Start()
@@ -96,8 +103,14 @@ public class shipManager : MonoBehaviour, IDamage
         else
         {
             powerAvailableIndicator.fillAmount = powerConsumption / powerAvailable;
-            Debug.Log(powerConsumption / powerAvailable);
         }
+
+        shieldIndicator.fillAmount = ((float)shield.currentHealth / shield.health);
+        shieldText.text = shield.currentHealth.ToString() + " / " + shield.health.ToString();
+
+        hullIndicator.fillAmount = (float)health / maxHealth;
+        hullText.text = health.ToString() + " / " + maxHealth.ToString();
+
         powerAvailableText.text = (powerConsumption).ToString() + " / " + powerAvailable.ToString() + " GW/s";
         reservePowerIndicator.fillAmount = reservePower / reservePowerCapacity;
         reservePowerText.text = reservePower.ToString() + " / " +  reservePowerCapacity.ToString() + " GW";
