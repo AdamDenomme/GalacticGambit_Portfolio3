@@ -117,6 +117,7 @@ public class topDownPlayerController : MonoBehaviour
                 {
                     selectedCrewMember = crew;
                     selectedCrewMember.toggleSelected(true);
+                    crew.updateGameUI();
                 }
             }
         }
@@ -132,6 +133,7 @@ public class topDownPlayerController : MonoBehaviour
                 {
                     selectedCrewMember = crew;
                     selectedCrewMember.toggleSelected(true);
+                    crew.updateGameUI();
                 }
             }
         }
@@ -162,4 +164,6 @@ public class topDownPlayerController : MonoBehaviour
             }
         }
     }
+    
+
 }

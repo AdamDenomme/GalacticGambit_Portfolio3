@@ -4975,6 +4975,11 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!137 &215926166 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 3645500432170801363, guid: 1bf091aeb8d6c74429ba70dddf5f30af, type: 3}
+  m_PrefabInstance: {fileID: 800494580}
+  m_PrefabAsset: {fileID: 0}
 --- !u!65 &217455867
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -28919,6 +28924,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1995525198409804423, guid: 1bf091aeb8d6c74429ba70dddf5f30af, type: 3}
+      propertyPath: model
+      value: 
+      objectReference: {fileID: 215926166}
     - target: {fileID: 2224824789771662652, guid: 1bf091aeb8d6c74429ba70dddf5f30af, type: 3}
       propertyPath: m_Name
       value: Crew Member (1)
@@ -70865,30 +70874,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1281964572954258180, guid: 3906179801ceb71418e398046d6ea90e, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1281964572954258180, guid: 3906179801ceb71418e398046d6ea90e, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1281964572954258180, guid: 3906179801ceb71418e398046d6ea90e, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -64
-      objectReference: {fileID: 0}
-    - target: {fileID: 3831015630685613357, guid: 3906179801ceb71418e398046d6ea90e, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3831015630685613357, guid: 3906179801ceb71418e398046d6ea90e, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3831015630685613357, guid: 3906179801ceb71418e398046d6ea90e, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -64
-      objectReference: {fileID: 0}
     - target: {fileID: 5599381731209360990, guid: 3906179801ceb71418e398046d6ea90e, type: 3}
       propertyPath: m_Name
       value: GameManager
@@ -70897,18 +70882,6 @@ PrefabInstance:
       propertyPath: topDownPlayerController
       value: 
       objectReference: {fileID: 721007896}
-    - target: {fileID: 7377111310382040352, guid: 3906179801ceb71418e398046d6ea90e, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7377111310382040352, guid: 3906179801ceb71418e398046d6ea90e, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7377111310382040352, guid: 3906179801ceb71418e398046d6ea90e, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -64
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

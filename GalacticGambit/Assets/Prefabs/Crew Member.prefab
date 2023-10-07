@@ -404,6 +404,7 @@ MonoBehaviour:
   agent: {fileID: 685900548279666639}
   selectedIndicator: {fileID: 2444381789879606973}
   waypointMarker: {fileID: 5037883798069576462, guid: ad7235ef27096e041b56ddb2ba78d177, type: 3}
+  model: {fileID: 3645500432170801363}
   repairExperience: 0
   repairModifier: 0
   health: 5

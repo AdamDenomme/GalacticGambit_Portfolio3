@@ -9,15 +9,22 @@ public class crewMember : MonoBehaviour, IDamage
     public NavMeshAgent agent;
     [SerializeField] GameObject selectedIndicator;
     [SerializeField] GameObject waypointMarker;
+    [SerializeField] Renderer model;
 
     [Header("--- Stats ---")]
     public int repairExperience;
     public int repairModifier;
     [SerializeField] int health;
+    int startHealth;
 
     bool isSelected;
     GameObject inGameWaypointMarker;
     public IInteractable selectedInteraction;
+
+    private void Start()
+    {
+        startHealth = health;
+    }
     // Update is called once per frame
     void Update()
     {
@@ -29,6 +36,8 @@ public class crewMember : MonoBehaviour, IDamage
                 inGameWaypointMarker = null;
             }
         }
+        // For damage testing.
+        //StartCoroutine(damageTest());
     }
 
     public void moveTo(Vector3 position)
@@ -84,16 +93,36 @@ public class crewMember : MonoBehaviour, IDamage
     public void takeDamage(int amount)
     {
         health -= amount;
+        StartCoroutine(flashDamage());
+        updateGameUI();
 
         if (health <= 0)
         {
             StartCoroutine(killCrew());
         }
-
+        
     }
     IEnumerator killCrew()
     {
         yield return new WaitForSeconds(1);
         Destroy(gameObject);
     }
+    IEnumerator flashDamage()
+    {
+        model.material.color = Color.red;
+        yield return new WaitForSeconds(0.1f);
+        model.material.color = Color.white;
+    }
+    public void updateGameUI()
+    {
+        gamemanager.instance.playerHPBar.fillAmount = (float)health / startHealth;
+    }
+
+    //Function for damage testing.
+
+    //IEnumerator damageTest()
+    //{
+    //    yield return new WaitForSeconds(5);
+    //    takeDamage(1);
+    //}
 }

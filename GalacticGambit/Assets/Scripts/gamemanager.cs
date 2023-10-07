@@ -25,7 +25,7 @@ public class gamemanager : MonoBehaviour
         //public List<Image> abilitySlots;
         //public Item coin;
         public GameObject activeMenu;
-        //public Image playerHPBar;
+        public Image playerHPBar;
         //public Image playerStaminaBar;
         //[SerializeField] Image levelBar;
         [SerializeField] GameObject pauseMenu;
