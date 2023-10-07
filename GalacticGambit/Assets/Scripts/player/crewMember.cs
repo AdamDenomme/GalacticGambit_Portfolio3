@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class crewMember : MonoBehaviour
+public class crewMember : MonoBehaviour, IDamage
 {
     [Header("--- Components ---")]
     public NavMeshAgent agent;
@@ -13,6 +13,7 @@ public class crewMember : MonoBehaviour
     [Header("--- Stats ---")]
     public int repairExperience;
     public int repairModifier;
+    [SerializeField] int health;
 
     bool isSelected;
     GameObject inGameWaypointMarker;
@@ -80,5 +81,19 @@ public class crewMember : MonoBehaviour
             selectedInteraction = null;
         }
     }
+    public void takeDamage(int amount)
+    {
+        health -= amount;
 
+        if (health <= 0)
+        {
+            StartCoroutine(killCrew());
+        }
+
+    }
+    IEnumerator killCrew()
+    {
+        yield return new WaitForSeconds(1);
+        Destroy(gameObject);
+    }
 }
