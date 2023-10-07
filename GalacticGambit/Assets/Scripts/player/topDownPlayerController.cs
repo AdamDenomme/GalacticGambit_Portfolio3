@@ -120,7 +120,22 @@ public class topDownPlayerController : MonoBehaviour
                 }
             }
         }
-        else if(Input.GetButtonDown("Cancel"))
+        else if (selectedCrewMember != null && Input.GetButton("Fire1"))
+        {
+            selectedCrewMember.toggleSelected(false);
+            selectedCrewMember = null;
+            RaycastHit hit;
+            if (Physics.Raycast(camera.ScreenPointToRay(Input.mousePosition), out hit, 100))
+            {
+                crewMember crew;
+                if (hit.collider.TryGetComponent(out crew))
+                {
+                    selectedCrewMember = crew;
+                    selectedCrewMember.toggleSelected(true);
+                }
+            }
+        }
+        else if(selectedCrewMember != null && Input.GetButtonDown("Cancel"))
         {
             if(selectedCrewMember.selectedInteraction != null)
             {
