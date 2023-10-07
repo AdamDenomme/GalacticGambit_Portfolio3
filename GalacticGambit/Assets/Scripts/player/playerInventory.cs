@@ -9,8 +9,7 @@ public class playerInventory : MonoBehaviour, IInventory
     private List<KeyValuePair<Item, int>> items = new List<KeyValuePair<Item, int>>();
     [SerializeField] List<Image> slots;
     [SerializeField] GameObject inventory;
-
-    public Image itemHoverBox;
+    public GameObject hoverMenu;
 
     private void Update()
     {
@@ -78,7 +77,7 @@ public class playerInventory : MonoBehaviour, IInventory
             {
                 Item item = items[i].Key;
                 inventorySlot iSlot = slot.GetComponent<inventorySlot>();
-                iSlot.updateItemInSlot(item.itemName, item.description, item.price);
+                iSlot.updateItemInSlot(item.itemName, item.description, item.price, item.sprite);
                 slot.sprite = item.sprite;
                 TextMeshProUGUI count = slot.GetComponentInChildren<TextMeshProUGUI>();
                 if (count != null)

@@ -44,7 +44,7 @@ public class shipManager : MonoBehaviour, IDamage
     float powerModifier;
 
     [Header("--- Ship Inventory ---")]
-    playerInventory inventory;
+    public playerInventory inventory;
 
 
     bool checkShipIsRunning;
