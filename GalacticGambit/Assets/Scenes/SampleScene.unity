@@ -2426,6 +2426,7 @@ MonoBehaviour:
   bulletCount: 1000
   missle: {fileID: 1614898803305187513, guid: 7389e08b12ce60b47a9bb3aacc1e0179, type: 3}
   missleShootPosition: {fileID: 872563000974303346}
+  lootDrop: {fileID: 6774760183009212736, guid: 4a0f4f84c8bf3764f988a1033547b94f, type: 3}
   missleShootRate: 2.5
   missleShootRange: 300
   missleCount: 50

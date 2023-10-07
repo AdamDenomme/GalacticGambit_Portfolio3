@@ -16,6 +16,7 @@ public class enemyAI : MonoBehaviour, IDamage
     [SerializeField] int bulletCount;
     [SerializeField] GameObject missle;
     [SerializeField] GameObject missleShootPosition;
+    [SerializeField] GameObject lootDrop;
     [SerializeField] float missleShootRate;
     [SerializeField] float missleShootRange;
     [SerializeField] int missleCount;
@@ -53,6 +54,8 @@ public class enemyAI : MonoBehaviour, IDamage
         {
             StartCoroutine(shootMissle());
         }
+        // Loot drop tester, kills enemy to test loot drop.
+       // StartCoroutine(damageTest());
     }
 
     IEnumerator shootBullet()
@@ -80,6 +83,7 @@ public class enemyAI : MonoBehaviour, IDamage
         //Game object should stop orbitting and continue in direction it was last traveling as well.
         //Game object should stop shooting.
         yield return new WaitForSeconds(3);
+        Instantiate(lootDrop, transform.position, transform.rotation);
         Destroy(transform.gameObject);
     }
 
@@ -93,4 +97,11 @@ public class enemyAI : MonoBehaviour, IDamage
         }
 
     }
+    // Function for loot drop test, at the time of writing this there is no way to kill the enemy that I found.
+
+    //IEnumerator damageTest()
+    //{
+    //    yield return new WaitForSeconds(5);
+    //    takeDamage(1);
+    //}
 }
