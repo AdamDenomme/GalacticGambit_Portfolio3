@@ -4942,11 +4942,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!137 &215926166 stripped
-SkinnedMeshRenderer:
-  m_CorrespondingSourceObject: {fileID: 3645500432170801363, guid: 1bf091aeb8d6c74429ba70dddf5f30af, type: 3}
-  m_PrefabInstance: {fileID: 800494580}
-  m_PrefabAsset: {fileID: 0}
 --- !u!65 &217455867
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -28738,20 +28733,12 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1995525198409804423, guid: 1bf091aeb8d6c74429ba70dddf5f30af, type: 3}
-      propertyPath: model
-      value: 
-      objectReference: {fileID: 215926166}
-    - target: {fileID: 1995525198409804423, guid: 1bf091aeb8d6c74429ba70dddf5f30af, type: 3}
-      propertyPath: health
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1995525198409804423, guid: 1bf091aeb8d6c74429ba70dddf5f30af, type: 3}
       propertyPath: repairModifier
-      value: 56
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1995525198409804423, guid: 1bf091aeb8d6c74429ba70dddf5f30af, type: 3}
       propertyPath: repairExperience
-      value: 234
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2224824789771662652, guid: 1bf091aeb8d6c74429ba70dddf5f30af, type: 3}
       propertyPath: m_Name
@@ -70364,6 +70351,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3068666824856336816, guid: 3906179801ceb71418e398046d6ea90e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5599381731209360990, guid: 3906179801ceb71418e398046d6ea90e, type: 3}
       propertyPath: m_Name
       value: GameManager
@@ -70372,6 +70363,10 @@ PrefabInstance:
       propertyPath: topDownPlayerController
       value: 
       objectReference: {fileID: 721007896}
+    - target: {fileID: 7550333876541622486, guid: 3906179801ceb71418e398046d6ea90e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -70498,14 +70493,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1995525198409804423, guid: 1bf091aeb8d6c74429ba70dddf5f30af, type: 3}
-      propertyPath: repairModifier
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 1995525198409804423, guid: 1bf091aeb8d6c74429ba70dddf5f30af, type: 3}
-      propertyPath: repairExperience
-      value: 5
-      objectReference: {fileID: 0}
     - target: {fileID: 2224824789771662652, guid: 1bf091aeb8d6c74429ba70dddf5f30af, type: 3}
       propertyPath: m_Name
       value: Crew Member
@@ -70516,7 +70503,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5930739132306085794, guid: 1bf091aeb8d6c74429ba70dddf5f30af, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -6.5
+      value: -6.1674204
       objectReference: {fileID: 0}
     - target: {fileID: 5930739132306085794, guid: 1bf091aeb8d6c74429ba70dddf5f30af, type: 3}
       propertyPath: m_LocalPosition.z

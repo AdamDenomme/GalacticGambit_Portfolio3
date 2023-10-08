@@ -15,8 +15,8 @@ public class crewMember : MonoBehaviour, IDamage
     [Header("--- Stats ---")]
     public int repairExperience;
     public int repairModifier;
-    [SerializeField] int health;
-    int startHealth;
+    [SerializeField] public int health;
+    public int startHealth;
 
     bool isSelected;
     GameObject inGameWaypointMarker;
@@ -25,6 +25,8 @@ public class crewMember : MonoBehaviour, IDamage
     private void Start()
     {
         startHealth = health;
+        // This is to take damage WITHOUT killing to test healing.
+        //takeDamage(4);
     }
     // Update is called once per frame
     void Update()
@@ -128,7 +130,19 @@ public class crewMember : MonoBehaviour, IDamage
         gamemanager.instance.repairModText.text = " ";
         gamemanager.instance.repairXPText.text = " ";
     }
-
+    public IEnumerator heal(int hp)
+    {
+        if (startHealth > health)
+        {
+            health += hp;
+            updateGameUI();
+        }
+        yield return new WaitForSeconds(1);
+        if (health < startHealth)
+        {
+            StartCoroutine(heal(hp));
+        }
+    }
     //Function for damage testing.
 
     //IEnumerator damageTest()

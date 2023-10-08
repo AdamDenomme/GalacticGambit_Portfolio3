@@ -366,7 +366,7 @@ GameObject:
   - component: {fileID: 8167672562853404144}
   m_Layer: 0
   m_Name: Crew Member
-  m_TagString: Untagged
+  m_TagString: Crew Mate
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -408,6 +408,7 @@ MonoBehaviour:
   repairExperience: 0
   repairModifier: 0
   health: 5
+  startHealth: 0
 --- !u!95 &8997609420063905766
 Animator:
   serializedVersion: 5
