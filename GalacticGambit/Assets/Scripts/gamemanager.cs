@@ -96,27 +96,23 @@ public class gamemanager : MonoBehaviour
         //
         void Update()
         {
-            if (activeMenu == null)
-               {
-                   statePause();
-                   activeMenu = pauseMenu;
-                   activeMenu.SetActive(isPaused);
-               }
+          //if (activeMenu == null)
+          //  {
+          //      statePause();
+          //      activeMenu = pauseMenu;
+          //      activeMenu.SetActive(isPaused);
+          //  }
         }
            //Enter pause state
            public void statePause()
            {
                Time.timeScale = 0;
-               Cursor.visible = true;
-               Cursor.lockState = CursorLockMode.Confined;
                isPaused = !isPaused;
            }
            //Exit pause state
            public void stateUnpause()
            {
                Time.timeScale = 1;
-               Cursor.visible = false;
-               Cursor.lockState = CursorLockMode.Locked;
                isPaused = !isPaused;
                activeMenu.SetActive(isPaused);
                activeMenu = null;
