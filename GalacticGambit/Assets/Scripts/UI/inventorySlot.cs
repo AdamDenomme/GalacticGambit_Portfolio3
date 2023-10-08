@@ -6,12 +6,14 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class inventorySlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
+public class inventorySlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler
 {
     [SerializeField] TMP_Text itemNameText;
     [SerializeField] TMP_Text priceText;
     [SerializeField] TMP_Text descriptionText;
-    [SerializeField] Sprite iconImage;
+    [SerializeField] Image iconImage;
+    [SerializeField] Image image;
+    [SerializeField] Image border;
 
     Sprite icon;
     string itemName;
@@ -19,6 +21,8 @@ public class inventorySlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
     float price;
     bool mouseOver;
     bool isHoverMenuSpawned;
+
+    bool isSelected;
     // Update is called once per frame
     void Update()
     {
@@ -44,6 +48,28 @@ public class inventorySlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
     {
         mouseOver = false;
     }
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        if(!isSelected)
+        {
+            border.gameObject.SetActive(true);
+            isSelected = true;
+        }
+        else
+        {
+            border.gameObject.SetActive(false);
+            isSelected = false;
+        }
+        
+    }
+    void updateSlot()
+    {
+        itemNameText.text = itemName;
+        descriptionText.text = description;
+        priceText.text = "$" + price.ToString();
+        iconImage.sprite = icon;
+        image.sprite = icon;
+    }
 
     public void updateItemInSlot(string item, string desc, float itemPrice, Sprite iconV)
     {
@@ -51,5 +77,7 @@ public class inventorySlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
         description = desc;
         price = itemPrice;
         icon = iconV;
+
+        updateSlot();
     }
 }
