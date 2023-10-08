@@ -214,9 +214,49 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 659114360697093068, guid: 346a478b7c2d3c145ab940745f80f6bf, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2448052576158648646, guid: 346a478b7c2d3c145ab940745f80f6bf, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4023899680533853964, guid: 346a478b7c2d3c145ab940745f80f6bf, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -40
+      objectReference: {fileID: 0}
+    - target: {fileID: 4538270450026159212, guid: 346a478b7c2d3c145ab940745f80f6bf, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4538270450026159212, guid: 346a478b7c2d3c145ab940745f80f6bf, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5068583711690956610, guid: 346a478b7c2d3c145ab940745f80f6bf, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -45
+      objectReference: {fileID: 0}
+    - target: {fileID: 5137217920407031000, guid: 346a478b7c2d3c145ab940745f80f6bf, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5137217920407031000, guid: 346a478b7c2d3c145ab940745f80f6bf, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5137217920407031000, guid: 346a478b7c2d3c145ab940745f80f6bf, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5431303351135412113, guid: 346a478b7c2d3c145ab940745f80f6bf, type: 3}
       propertyPath: m_Name
       value: Settings for pause Menu
+      objectReference: {fileID: 0}
+    - target: {fileID: 5431303351135412113, guid: 346a478b7c2d3c145ab940745f80f6bf, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6187760093101358932, guid: 346a478b7c2d3c145ab940745f80f6bf, type: 3}
       propertyPath: m_Value
@@ -362,13 +402,47 @@ PrefabInstance:
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 6931392764859171183, guid: 346a478b7c2d3c145ab940745f80f6bf, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 120
+      objectReference: {fileID: 0}
+    - target: {fileID: 7105599795029662099, guid: 346a478b7c2d3c145ab940745f80f6bf, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7916035657790000496, guid: 346a478b7c2d3c145ab940745f80f6bf, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7916035657790000496, guid: 346a478b7c2d3c145ab940745f80f6bf, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8026271758526720361, guid: 346a478b7c2d3c145ab940745f80f6bf, type: 3}
       propertyPath: UIObject
       value: 
       objectReference: {fileID: 641094426}
+    - target: {fileID: 8792173355763113201, guid: 346a478b7c2d3c145ab940745f80f6bf, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8792173355763113201, guid: 346a478b7c2d3c145ab940745f80f6bf, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8792173355763113201, guid: 346a478b7c2d3c145ab940745f80f6bf, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9070249131259083345, guid: 346a478b7c2d3c145ab940745f80f6bf, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 118
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 1057039925949989678, guid: 346a478b7c2d3c145ab940745f80f6bf, type: 3}
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 659114360697093068, guid: 346a478b7c2d3c145ab940745f80f6bf, type: 3}
+    - {fileID: 6090996302884778107, guid: 346a478b7c2d3c145ab940745f80f6bf, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 3278244940213817846, guid: 346a478b7c2d3c145ab940745f80f6bf, type: 3}
@@ -543,6 +617,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   UIObject: {fileID: 943042950}
   menuParent: {fileID: 641094426}
+  activeMenu: {fileID: 0}
+  willPause: 0
 --- !u!1 &1810111880
 GameObject:
   m_ObjectHideFlags: 0

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.UI;
+using UnityEngine.UIElements;
 
 public class crewMember : MonoBehaviour, IDamage
 {
@@ -11,6 +12,7 @@ public class crewMember : MonoBehaviour, IDamage
     [SerializeField] GameObject selectedIndicator;
     [SerializeField] GameObject waypointMarker;
     [SerializeField] Renderer model;
+    private Vector3 medBay = new Vector3(-1, -6.5f ,3);
 
     [Header("--- Stats ---")]
     public int repairExperience;
@@ -142,6 +144,26 @@ public class crewMember : MonoBehaviour, IDamage
         {
             StartCoroutine(heal(hp));
         }
+    }
+
+    public void walktoMedBay()
+    {
+        if (inGameWaypointMarker != null)
+        {
+            agent.SetDestination(medBay);
+            Destroy(inGameWaypointMarker);
+            inGameWaypointMarker = null;
+            inGameWaypointMarker = Instantiate(waypointMarker, medBay, Quaternion.identity);
+            inGameWaypointMarker.transform.parent = null;
+        }
+        else
+        {
+            agent.SetDestination(medBay);
+            inGameWaypointMarker = Instantiate(waypointMarker, medBay, Quaternion.identity);
+            inGameWaypointMarker.transform.parent = null;
+        }
+        
+        Destroy(inGameWaypointMarker);
     }
     //Function for damage testing.
 
