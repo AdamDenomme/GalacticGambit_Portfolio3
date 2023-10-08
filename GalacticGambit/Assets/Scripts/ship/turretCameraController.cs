@@ -6,8 +6,8 @@ public class turretCameraController : MonoBehaviour
 {
     [Header("--- Camera Stats ---")]
     [SerializeField] int sensitivity;
-    [SerializeField] int lockVertMin;
-    [SerializeField] int lockVertMax;
+    [SerializeField] int lockRotMin;
+    [SerializeField] int lockRotMax;
     [SerializeField] bool invertY;
 
     [SerializeField] Transform barrel;
@@ -33,7 +33,7 @@ public class turretCameraController : MonoBehaviour
             xRotation -= mouseY;
 
         // keeps rotation on x axis
-        xRotation = Mathf.Clamp(xRotation, lockVertMin, lockVertMax);
+        xRotation = Mathf.Clamp(xRotation, lockRotMin, lockRotMax);
 
         // rotate camera x axis
         barrel.localRotation = Quaternion.Euler(xRotation, 0, 0);

@@ -7,14 +7,33 @@ using UnityEngine;
 public class OverHeadUIButtons : MonoBehaviour
 {
     public GameObject UIObject;
+    public GameObject menuParent;
+   
 
     public void openUI()
     {
-        if (UIObject != null)
+        if (menuParent != null)
         {
-            bool isActive = UIObject.activeSelf;
+            menuParent.SetActive(false);
 
-            UIObject.SetActive(!isActive);
+            if (UIObject != null)
+            {
+                bool isActive = UIObject.activeSelf;
+
+                UIObject.SetActive(!isActive);
+            }
         }
+        else
+        {
+            if (UIObject != null)
+            {
+                bool isActive = UIObject.activeSelf;
+
+                UIObject.SetActive(!isActive);
+            }
+
+        }
+
     }
+
 }

@@ -7,9 +7,11 @@ MonoImporter:
   - player: {instanceID: 0}
   - playerScript: {instanceID: 0}
   - playerSpawnPos: {instanceID: 0}
+  - topDownPlayerController: {instanceID: 0}
   - interactionMenu: {instanceID: 0}
-  - activeMenu: {instanceID: 0}
-  - pauseMenu: {instanceID: 0}
+  - activeMenu: {fileID: 8141409887536219255, guid: ff70c7acd9ca5c347ba9f35a55c7aa14, type: 3}
+  - playerHPBar: {instanceID: 0}
+  - pauseMenu: {fileID: 8141409887536219255, guid: ff70c7acd9ca5c347ba9f35a55c7aa14, type: 3}
   - fullMainMenu: {instanceID: 0}
   - storeMenu: {instanceID: 0}
   - mainMenu: {instanceID: 0}

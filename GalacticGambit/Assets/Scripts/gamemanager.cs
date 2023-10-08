@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using static UnityEditor.Progress;
 using UnityEngine.TextCore.Text;
 
     
@@ -62,7 +61,7 @@ public class gamemanager : MonoBehaviour
             instance = this;
             player = GameObject.FindGameObjectWithTag("Player");
             //playerScript = player.GetComponent<playerController>();
-            playerSpawnPos = GameObject.FindGameObjectWithTag("Player Spawn Pos");
+            //playerSpawnPos = GameObject.FindGameObjectWithTag("Player Spawn Pos");
             Cursor.lockState = CursorLockMode.Confined;
             Cursor.visible = true;
         }
@@ -97,12 +96,7 @@ public class gamemanager : MonoBehaviour
         //
         void Update()
         {
-            if (!characterSelected)
-            {
-                toggleFullMainMenu(true);
-                characterSelected = true;
-            }
-            if (Input.GetButtonDown("Cancel") && activeMenu == null)
+            if (activeMenu == null)
                {
                    statePause();
                    activeMenu = pauseMenu;
