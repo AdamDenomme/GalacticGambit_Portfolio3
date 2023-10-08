@@ -28741,6 +28741,18 @@ PrefabInstance:
       propertyPath: model
       value: 
       objectReference: {fileID: 215926166}
+    - target: {fileID: 1995525198409804423, guid: 1bf091aeb8d6c74429ba70dddf5f30af, type: 3}
+      propertyPath: health
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1995525198409804423, guid: 1bf091aeb8d6c74429ba70dddf5f30af, type: 3}
+      propertyPath: repairModifier
+      value: 56
+      objectReference: {fileID: 0}
+    - target: {fileID: 1995525198409804423, guid: 1bf091aeb8d6c74429ba70dddf5f30af, type: 3}
+      propertyPath: repairExperience
+      value: 234
+      objectReference: {fileID: 0}
     - target: {fileID: 2224824789771662652, guid: 1bf091aeb8d6c74429ba70dddf5f30af, type: 3}
       propertyPath: m_Name
       value: Crew Member (1)
@@ -70360,10 +70372,6 @@ PrefabInstance:
       propertyPath: topDownPlayerController
       value: 
       objectReference: {fileID: 721007896}
-    - target: {fileID: 7240618898538726560, guid: 3906179801ceb71418e398046d6ea90e, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -70490,6 +70498,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1995525198409804423, guid: 1bf091aeb8d6c74429ba70dddf5f30af, type: 3}
+      propertyPath: repairModifier
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1995525198409804423, guid: 1bf091aeb8d6c74429ba70dddf5f30af, type: 3}
+      propertyPath: repairExperience
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 2224824789771662652, guid: 1bf091aeb8d6c74429ba70dddf5f30af, type: 3}
       propertyPath: m_Name
       value: Crew Member

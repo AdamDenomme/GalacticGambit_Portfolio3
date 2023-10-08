@@ -124,6 +124,7 @@ public class topDownPlayerController : MonoBehaviour
         else if (selectedCrewMember != null && Input.GetButton("Fire1"))
         {
             selectedCrewMember.toggleSelected(false);
+            selectedCrewMember.resetGameUI();
             selectedCrewMember = null;
             RaycastHit hit;
             if (Physics.Raycast(camera.ScreenPointToRay(Input.mousePosition), out hit, 100))
@@ -145,6 +146,7 @@ public class topDownPlayerController : MonoBehaviour
             }
 
             selectedCrewMember.toggleSelected(false);
+            selectedCrewMember.resetGameUI();
             selectedCrewMember = null;
         }
         else

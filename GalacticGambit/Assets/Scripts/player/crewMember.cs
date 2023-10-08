@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UI;
 
 public class crewMember : MonoBehaviour, IDamage
 {
@@ -116,6 +117,16 @@ public class crewMember : MonoBehaviour, IDamage
     public void updateGameUI()
     {
         gamemanager.instance.playerHPBar.fillAmount = (float)health / startHealth;
+        gamemanager.instance.playerHPText.text = health.ToString() + " / " + startHealth.ToString();
+        gamemanager.instance.repairModText.text = repairModifier.ToString();
+        gamemanager.instance.repairXPText.text = repairExperience.ToString();
+    }
+    public void resetGameUI()
+    {
+        gamemanager.instance.playerHPBar.fillAmount = 0;
+        gamemanager.instance.playerHPText.text = " ";
+        gamemanager.instance.repairModText.text = " ";
+        gamemanager.instance.repairXPText.text = " ";
     }
 
     //Function for damage testing.

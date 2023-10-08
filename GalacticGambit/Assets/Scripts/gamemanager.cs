@@ -25,6 +25,9 @@ public class gamemanager : MonoBehaviour
         //public Item coin;
         public GameObject activeMenu;
         public Image playerHPBar;
+        public TMP_Text playerHPText;
+    public TMP_Text repairXPText;
+    public TMP_Text repairModText;
         //public Image playerStaminaBar;
         //[SerializeField] Image levelBar;
         [SerializeField] GameObject pauseMenu;
