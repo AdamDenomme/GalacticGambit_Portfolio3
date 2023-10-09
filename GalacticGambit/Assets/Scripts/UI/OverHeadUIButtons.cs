@@ -11,9 +11,8 @@ public class OverHeadUIButtons : MonoBehaviour
     public GameObject activeMenu;
     public bool willPause;
     public bool willunPause;
-    public int isPausing;
+    private bool isPausing = false;
     private bool isActive;
-
 
 
 
@@ -45,24 +44,23 @@ public class OverHeadUIButtons : MonoBehaviour
 
     public void pauseUI()
     {
-        if (willPause && (UIObject != null || menuParent != null))
+        if (willPause && UIObject != null)
         {
-            if (isPausing == 1)
-            {
-                isPausing = 0;
-                gamemanager.instance.stateUnpause();
-            }
-            if (isPausing == 0)
-            {
-                isPausing = 1;
-                gamemanager.instance.statePause();
-            }
-        }
-
-        else if (willunPause && menuParent != null)
-        {
-            gamemanager.instance.stateUnpause();
-            isPausing = 0;
+            gamemanager.instance.statePause();
+            isPausing = true;
         }
     }
+
+    public void unPauseUI()
+    {
+        if (willunPause && UIObject != null)
+        {
+            if (isPausing)
+            {
+                gamemanager.instance.stateUnpause();
+                isPausing = !isPausing;
+            }
+        }
+    }
+
 }

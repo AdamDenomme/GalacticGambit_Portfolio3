@@ -1,8 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
-using UnityEngine.UI;
 
 public class turretController : MonoBehaviour
 {
@@ -15,21 +13,11 @@ public class turretController : MonoBehaviour
     [SerializeField] Camera camera;
     [SerializeField] Transform bulletSpawn;
     [SerializeField] ParticleSystem tractorParicle;
-    [SerializeField] int maxAmmo;
-    public int currentAmmo;
-    public TMP_Text ammo;
 
     GameObject selectTurret;
 
     public bool isActive;
     bool isShooting;
-
-    private void Start()
-    {
-        currentAmmo = maxAmmo;
-        updateAmmoUI();
-    }
-
     // Update is called once per frame
     void Update()
     {
@@ -87,29 +75,14 @@ public class turretController : MonoBehaviour
                 tractorParicle.gameObject.SetActive(false);
             }
         }
-        updateAmmoUI();
     }
 
     IEnumerator shoot()
     {
-        if (currentAmmo > 0)
-        {
-            isShooting = true;
-            GameObject spawnedBullet = Instantiate(bullet, bulletSpawn);
-            spawnedBullet.transform.parent = null;
-            yield return new WaitForSeconds(attackSpeed);
-            currentAmmo = currentAmmo - (int)attackSpeed;
-            isShooting = false;
-            updateAmmoUI();
-        }
-        else
-        {
-
-        }
-    }
-
-    public void updateAmmoUI()
-    {
-        ammo.text = "Ammunition: " + currentAmmo.ToString() + "/" + maxAmmo.ToString();
+        isShooting = true;
+        GameObject spawnedBullet = Instantiate(bullet, bulletSpawn);
+        spawnedBullet.transform.parent = null;
+        yield return new WaitForSeconds(attackSpeed);
+        isShooting = false;
     }
 }

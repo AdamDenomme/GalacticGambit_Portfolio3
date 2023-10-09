@@ -1,8 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
-//using UnityEngine.UI;
 
 public class shield : MonoBehaviour, IDamage
 {
@@ -13,8 +11,6 @@ public class shield : MonoBehaviour, IDamage
 
     public int currentHealth;
 
-    public TMP_Text shieldStability;
-
     bool regenUI;
     bool isRegening;
 
@@ -22,7 +18,6 @@ public class shield : MonoBehaviour, IDamage
     void Start()
     {
         currentHealth = health;
-        stabilityShield();
     }
 
     // Update is called once per frame
@@ -32,7 +27,6 @@ public class shield : MonoBehaviour, IDamage
         {
             StartCoroutine(regenShieldUI());
         }
-        stabilityShield();
     }
 
     public void takeDamage(int amount)
@@ -77,27 +71,6 @@ public class shield : MonoBehaviour, IDamage
             meshRenderer.enabled = true;
             currentHealth = 0;
             StartCoroutine(regenShield());
-        }
-    }
-
-    public void stabilityShield()
-    {
-        if (currentHealth > health *.75f)
-        {
-            shieldStability.text = "STABLE";
-            shieldStability.color = Color.green;
-        }
-
-        if (currentHealth <= health *.5f)
-        {
-            shieldStability.text = "DAMAGED";
-            shieldStability.color = Color.yellow;
-        }
-
-        if (currentHealth <= health * .25f)
-        {
-            shieldStability.text = "CRITICAL";
-            shieldStability.color = Color.red;
         }
     }
 }
