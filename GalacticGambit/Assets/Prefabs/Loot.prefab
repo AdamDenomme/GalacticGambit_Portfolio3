@@ -47,7 +47,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ec444fe06859cb46a1bc7ba529d3ec9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lootItem: {fileID: 11400000, guid: c967c87c8e5de2f4e939c02e40d1332e, type: 2}
+  possibleLoot:
+  - {fileID: 11400000, guid: 49f46e4df0d911643bab7e4f65d18935, type: 2}
+  - {fileID: 11400000, guid: 4c10a7ff12072ca49ae11e0647c5922e, type: 2}
+  - {fileID: 11400000, guid: f1b0011cc6aa3d945a62025d0dbe07ac, type: 2}
+  - {fileID: 11400000, guid: ade7f084f6397c04d91236fae98327b1, type: 2}
+  - {fileID: 11400000, guid: e7a57db7c5f4d774b8ec8fc52292f37d, type: 2}
+  - {fileID: 11400000, guid: c967c87c8e5de2f4e939c02e40d1332e, type: 2}
+  - {fileID: 11400000, guid: 5b5df77a698502b478a26b3991682502, type: 2}
+  lootItem: {fileID: 0}
 --- !u!33 &4962614731117735276
 MeshFilter:
   m_ObjectHideFlags: 0

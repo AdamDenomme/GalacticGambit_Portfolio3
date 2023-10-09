@@ -46,6 +46,9 @@ public class shipManager : MonoBehaviour, IDamage
     [Header("--- Ship Inventory ---")]
     public playerInventory inventory;
 
+    [SerializeField] ParticleSystem warp;
+    [SerializeField] Animator animator;
+
 
     bool checkShipIsRunning;
     void Awake()
@@ -187,6 +190,22 @@ public class shipManager : MonoBehaviour, IDamage
 
     }
 
+    public IEnumerator playWarp()
+    {
+        warp.gameObject.SetActive(true);
+        animator.SetBool("Warp", true);
+        float cameraSize = gamemanager.instance.topDownPlayerController.camera.orthographicSize;
+        gamemanager.instance.topDownPlayerController.camera.orthographicSize = 50f;
+        yield return new WaitForSeconds(2);
+        warp.gameObject.SetActive(false);
+        animator.SetBool("Warp", false);
+        gamemanager.instance.topDownPlayerController.camera.orthographicSize = cameraSize;
+    }
 
-
+    public IEnumerator extract()
+    {
+        yield return new WaitForSeconds(5);
+        StartCoroutine(playWarp());
+        levelGeneration.instance.removeWormhole();
+    }
 }

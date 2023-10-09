@@ -74,9 +74,13 @@ public class inventorySlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
     public void updateItemInSlot(string item, string desc, float itemPrice, Sprite iconV)
     {
         itemName = item;
+        Debug.Log(itemName);
         description = desc;
+        Debug.Log(description);
         price = itemPrice;
+        Debug.Log(price);
         icon = iconV;
+        Debug.Log(icon);
 
         updateSlot();
     }

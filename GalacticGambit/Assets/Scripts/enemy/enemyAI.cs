@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class enemyAI : MonoBehaviour, IDamage
 {
-    [SerializeField] shipManager ship;
     [SerializeField] float movementSpeed;
     [SerializeField] float orbitSpeed;
     [SerializeField] float orbitRange;
@@ -26,23 +25,27 @@ public class enemyAI : MonoBehaviour, IDamage
     private bool isShootingBullet;
     private bool isShootingMissle;
 
+    void Awake()
+    {
+    }
+
     void Update()
     {
-        float distanceToTarget = Vector3.Distance(transform.position, ship.transform.position);
+        float distanceToTarget = Vector3.Distance(transform.position, shipManager.instance.transform.position);
 
         if(!isOrbitting && distanceToTarget > orbitRange)
         {
-            Vector3 moveDirection = (ship.transform.position - transform.position).normalized;
+            Vector3 moveDirection = (shipManager.instance.transform.position - transform.position).normalized;
             transform.position += moveDirection * movementSpeed * Time.deltaTime;
-            transform.LookAt(ship.transform.position);
+            transform.LookAt(shipManager.instance.transform.position);
         }
 
         //Only orbits in 2d, additional functionilty required.
         else
         {
             isOrbitting = true;
-            transform.RotateAround(ship.transform.position, Vector3.up, orbitSpeed * Time.deltaTime);
-            transform.LookAt(ship.transform.position);
+            transform.RotateAround(shipManager.instance.transform.position, Vector3.up, orbitSpeed * Time.deltaTime);
+            transform.LookAt(shipManager.instance.transform.position);
         }
 
         if (distanceToTarget < bulletShootRange && !isShootingBullet && bulletCount > 0)

@@ -16,7 +16,7 @@ public class turretController : MonoBehaviour
 
     GameObject selectTurret;
 
-    bool isActive = true;
+    public bool isActive;
     bool isShooting;
     // Update is called once per frame
     void Update()

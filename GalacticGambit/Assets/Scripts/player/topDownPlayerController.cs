@@ -6,7 +6,7 @@ using UnityEngine.AI;
 public class topDownPlayerController : MonoBehaviour
 {
     [Header("--- Components ---")]
-    [SerializeField] Camera camera;
+    public Camera camera;
     
 
     [SerializeField] float cameraSensitivity;
