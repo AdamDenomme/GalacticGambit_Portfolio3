@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,6 +11,13 @@ public class BrightnessSlider : MonoBehaviour
 
     void Update()
     {
-        gameLight.intensity = brightSlider.value;
+        try
+        {
+            gameLight.intensity = brightSlider.value;
+        }catch(Exception e)
+        {
+
+        }
+        
     }
 }

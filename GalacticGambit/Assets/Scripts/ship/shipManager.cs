@@ -28,6 +28,7 @@ public class shipManager : MonoBehaviour, IDamage
     [Header("--- Hull ---")]
     [SerializeField] Image hullIndicator;
     [SerializeField] TMP_Text hullText;
+    [SerializeField] TMP_Text hullStability;
 
     [Header("--- Sub Systems ---")]
     [SerializeField] pilotSeat pilotSeat;
@@ -207,5 +208,26 @@ public class shipManager : MonoBehaviour, IDamage
         yield return new WaitForSeconds(5);
         StartCoroutine(playWarp());
         levelGeneration.instance.removeWormhole();
+    }
+
+    public void stabilityHull()
+    {
+        if (health > maxHealth * .75f)
+        {
+            hullStability.text = "STABLE";
+            hullStability.color = Color.green;
+        }
+
+        if (health <= maxHealth * .5f)
+        {
+            hullStability.text = "DAMAGED";
+            hullStability.color = Color.yellow;
+        }
+
+        if (health <= maxHealth * .25f)
+        {
+            hullStability.text = "CRITICAL";
+            hullStability.color = Color.red;
+        }
     }
 }

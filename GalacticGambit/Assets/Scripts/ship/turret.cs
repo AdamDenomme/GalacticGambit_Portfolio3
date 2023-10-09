@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -16,6 +17,10 @@ public class turret : MonoBehaviour, IDamage, IInteractable
 
     [SerializeField] List<Interaction> interactionsPossible;
 
+    [SerializeField] int maxAmmo;
+    public int currentAmmo;
+    public TMP_Text ammo;
+
     private bool interactable;
     private bool isSitting;
 
@@ -26,6 +31,12 @@ public class turret : MonoBehaviour, IDamage, IInteractable
     private bool isManned;
     private bool updatePower;
     [SerializeField] float powerUsage;
+
+    void Start()
+    {
+        currentAmmo = maxAmmo;
+        updateAmmoUI();
+    }
 
     void Update()
     {
@@ -132,6 +143,7 @@ public class turret : MonoBehaviour, IDamage, IInteractable
             //Toggle Navigation Menu
             isManned = true;
             controller.isActive = true;
+            
         }
     }
 
@@ -152,5 +164,10 @@ public class turret : MonoBehaviour, IDamage, IInteractable
     public void back()
     {
         gamemanager.instance.toggleInteractionMenu(false);
+    }
+
+    public void updateAmmoUI()
+    {
+        ammo.text = "Ammunition: " + currentAmmo.ToString() + "/" + maxAmmo.ToString();
     }
 }

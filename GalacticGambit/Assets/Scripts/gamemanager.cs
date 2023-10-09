@@ -111,14 +111,14 @@ public class gamemanager : MonoBehaviour
            {
                Time.timeScale = 0;
                isPaused = !isPaused;
+        activeMenu.SetActive(isPaused);
            }
            //Exit pause state
            public void stateUnpause()
            {
                Time.timeScale = 1;
                isPaused = !isPaused;
-               activeMenu.SetActive(isPaused);
-               activeMenu = null;
+            activeMenu.SetActive(isPaused);
            }
             //Toggle store menu and pause/unpause game.
             public void toggleStore(bool state)
