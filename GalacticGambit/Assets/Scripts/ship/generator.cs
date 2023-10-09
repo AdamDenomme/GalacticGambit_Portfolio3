@@ -30,6 +30,7 @@ public class generator : MonoBehaviour, IInteractable, IDamage
     void Start()
     {
         updatePower = true;
+        stabilityPower();
     }
 
     // Update is called once per frame
@@ -64,6 +65,7 @@ public class generator : MonoBehaviour, IInteractable, IDamage
             shipManager.instance.stopGeneratingPower(powerGeneration);
             updatePower = false;
         }
+        stabilityPower();
     }
 
     public void onInteractable(bool state)
@@ -153,5 +155,10 @@ public class generator : MonoBehaviour, IInteractable, IDamage
     public void back()
     {
         gamemanager.instance.toggleInteractionMenu(false);
+    }
+
+    public void stabilityPower()
+    {
+
     }
 }

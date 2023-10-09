@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.UI;
 using UnityEngine.UIElements;
+using TMPro;
 
 public class crewMember : MonoBehaviour, IDamage
 {
@@ -19,6 +20,7 @@ public class crewMember : MonoBehaviour, IDamage
     public int repairModifier;
     [SerializeField] public int health;
     public int startHealth;
+    public TMP_Text crewStability;
 
     bool isSelected;
     GameObject inGameWaypointMarker;
@@ -27,6 +29,7 @@ public class crewMember : MonoBehaviour, IDamage
     private void Start()
     {
         startHealth = health;
+        stabilityCrew();
         // This is to take damage WITHOUT killing to test healing.
         //takeDamage(4);
     }
@@ -41,6 +44,7 @@ public class crewMember : MonoBehaviour, IDamage
                 inGameWaypointMarker = null;
             }
         }
+        stabilityCrew();
         // For damage testing.
         //StartCoroutine(damageTest());
     }
@@ -164,6 +168,28 @@ public class crewMember : MonoBehaviour, IDamage
         }
         
         Destroy(inGameWaypointMarker);
+    }
+
+
+    public void stabilityCrew()
+    {
+        if (health > startHealth * .75f)
+        {
+            crewStability.text = "STABLE";
+            crewStability.color = Color.green;
+        }
+
+        if (health <= startHealth * .5f)
+        {
+            crewStability.text = "DAMAGED";
+            crewStability.color = Color.yellow;
+        }
+
+        if (health <= startHealth * .25f)
+        {
+            crewStability.text = "CRITICAL";
+            crewStability.color = Color.red;
+        }
     }
     //Function for damage testing.
 

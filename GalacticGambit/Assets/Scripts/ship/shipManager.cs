@@ -20,14 +20,17 @@ public class shipManager : MonoBehaviour, IDamage
     [SerializeField] Image reservePowerIndicator;
     [SerializeField] TMP_Text reservePowerText;
     public float powerAvailable;
+    public float powerStart = 1200;
     public float powerConsumption;
     //Battery storage
     float reservePower;
     float reservePowerCapacity;
+    public TMP_Text powerStability;
 
     [Header("--- Hull ---")]
     [SerializeField] Image hullIndicator;
     [SerializeField] TMP_Text hullText;
+    [SerializeField] TMP_Text hullStability;
 
     [Header("--- Sub Systems ---")]
     [SerializeField] pilotSeat pilotSeat;
@@ -60,6 +63,8 @@ public class shipManager : MonoBehaviour, IDamage
     private void Start()
     {
         pilotSeat.takeDamage(10);
+        stabilityHull();
+        //stabilityPower();
     }
 
 
@@ -69,7 +74,8 @@ public class shipManager : MonoBehaviour, IDamage
         {
             StartCoroutine(checkShip());
         }
-        
+        stabilityHull();
+        //stabilityPower();
     }
 
     IEnumerator checkShip()
@@ -202,10 +208,54 @@ public class shipManager : MonoBehaviour, IDamage
         gamemanager.instance.topDownPlayerController.camera.orthographicSize = cameraSize;
     }
 
+
     public IEnumerator extract()
     {
         yield return new WaitForSeconds(5);
         StartCoroutine(playWarp());
         levelGeneration.instance.removeWormhole();
     }
+
+    public void stabilityHull()
+    {
+        if (health > maxHealth * .75f)
+        {
+            hullStability.text = "STABLE";
+            hullStability.color = Color.green;
+        }
+
+        if (health <= maxHealth * .5f)
+        {
+            hullStability.text = "DAMAGED";
+            hullStability.color = Color.yellow;
+        }
+
+        if (health <= maxHealth * .25f)
+        {
+            hullStability.text = "CRITICAL";
+            hullStability.color = Color.red;
+        }
+    }
+
+    // public void stabilityPower()
+    // {
+    //     if (powerAvailable > powerStart * .75f)
+    //     {
+    //         hullStability.text = "STABLE";
+    //         hullStability.color = Color.green;
+    //     }
+    // 
+    //     if (powerAvailable <= powerStart * .5f)
+    //     {
+    //         hullStability.text = "DAMAGED";
+    //         hullStability.color = Color.yellow;
+    //     }
+    // 
+    //     if (powerAvailable <= powerStart * .25f)
+    //     {
+    //         powerStability.text = "CRITICAL";
+    //         powerStability.color = Color.red;
+    //     }
+    // }
+    // 
 }
