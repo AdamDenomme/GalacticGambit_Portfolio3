@@ -6,9 +6,11 @@ using UnityEngine;
 
 public class OverHeadUIButtons : MonoBehaviour
 {
+    // Ui being called and UI it derives from
     public GameObject UIObject;
     public GameObject menuParent;
-    public GameObject activeMenu;
+
+   
     public bool willPause;
     public bool willunPause;
     public int isPausing;
@@ -63,4 +65,6 @@ public class OverHeadUIButtons : MonoBehaviour
             isPausing = 0;
         }
     }
+
+    
 }
