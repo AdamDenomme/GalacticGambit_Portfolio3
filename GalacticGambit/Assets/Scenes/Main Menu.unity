@@ -1240,35 +1240,47 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5532896328300781198, guid: 9f1445503149e2e4fa9cf3d49a07c6d6, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.65689296
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5532896328300781198, guid: 9f1445503149e2e4fa9cf3d49a07c6d6, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.37792206
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5532896328300781198, guid: 9f1445503149e2e4fa9cf3d49a07c6d6, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.632387
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5532896328300781198, guid: 9f1445503149e2e4fa9cf3d49a07c6d6, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.16047823
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5532896328300781198, guid: 9f1445503149e2e4fa9cf3d49a07c6d6, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: -17.07
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5532896328300781198, guid: 9f1445503149e2e4fa9cf3d49a07c6d6, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 95.13
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5532896328300781198, guid: 9f1445503149e2e4fa9cf3d49a07c6d6, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: -46.101
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6029082919035906607, guid: 9f1445503149e2e4fa9cf3d49a07c6d6, type: 3}
       propertyPath: m_Name
       value: Ship
+      objectReference: {fileID: 0}
+    - target: {fileID: 6333438582377401640, guid: 9f1445503149e2e4fa9cf3d49a07c6d6, type: 3}
+      propertyPath: shieldScript
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7790510756557322303, guid: 9f1445503149e2e4fa9cf3d49a07c6d6, type: 3}
+      propertyPath: warp
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7790510756557322303, guid: 9f1445503149e2e4fa9cf3d49a07c6d6, type: 3}
+      propertyPath: shield
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 7858150180459364233, guid: 9f1445503149e2e4fa9cf3d49a07c6d6, type: 3}
       propertyPath: m_Controller

@@ -80,12 +80,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a265e20c010f5bc4bb7d7e9186d5ef58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementSpeed: 50
-  orbitSpeed: 20
+  movementSpeed: 150
+  orbitSpeed: 75
   orbitRange: 150
   bullet: {fileID: 6080334576356808732, guid: 7626e0bd069c89e44b8db4cb62824da5, type: 3}
   bulletShootPosition: {fileID: 2083901772562808079}
-  bulletShootRate: 0.2
+  bulletShootRate: 0.5
   bulletShootRange: 150
   bulletCount: 1000
   missle: {fileID: 1614898803305187513, guid: 7389e08b12ce60b47a9bb3aacc1e0179, type: 3}
@@ -95,6 +95,9 @@ MonoBehaviour:
   missleShootRange: 300
   missleCount: 50
   health: 0
+  maxAngle: 15
+  minRange: 100
+  maxRange: 100
 --- !u!33 &912801099899711111
 MeshFilter:
   m_ObjectHideFlags: 0

@@ -74,7 +74,11 @@ public class turretController : MonoBehaviour
                         hit.collider.gameObject.TryGetComponent(out lootItem);
                         if(lootItem != null)
                         {
-                            shipManager.instance.inventory.addItem(lootItem.lootItem);
+                            foreach(Item item in lootItem.lootItems)
+                            {
+                                shipManager.instance.inventory.addItem(item);
+                            }
+                            
                         }
 
                         Destroy(hit.collider.gameObject);
