@@ -11,9 +11,11 @@ public class inventorySlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
     [SerializeField] TMP_Text itemNameText;
     [SerializeField] TMP_Text priceText;
     [SerializeField] TMP_Text descriptionText;
+    [SerializeField] TMP_Text itemCount;
     [SerializeField] Image iconImage;
     [SerializeField] Image image;
     [SerializeField] Image border;
+
 
     Sprite icon;
     string itemName;
@@ -21,6 +23,7 @@ public class inventorySlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
     float price;
     bool mouseOver;
     bool isHoverMenuSpawned;
+    int count;
 
     bool isSelected;
     // Update is called once per frame
@@ -69,9 +72,10 @@ public class inventorySlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
         priceText.text = "$" + price.ToString();
         iconImage.sprite = icon;
         image.sprite = icon;
+        itemCount.text = count.ToString();
     }
 
-    public void updateItemInSlot(string item, string desc, float itemPrice, Sprite iconV)
+    public void updateItemInSlot(string item, string desc, float itemPrice, Sprite iconV, int countV)
     {
         itemName = item;
         Debug.Log(itemName);
@@ -81,6 +85,7 @@ public class inventorySlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
         Debug.Log(price);
         icon = iconV;
         Debug.Log(icon);
+        count = countV;
 
         updateSlot();
     }

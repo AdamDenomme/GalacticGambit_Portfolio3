@@ -31,7 +31,7 @@ public class enemyAI : MonoBehaviour, IDamage
     [Header("--- Ship Loot ---")]
     [SerializeField] List<Item> possibleLoot;
     [SerializeField] int maxLootPossible;
-    List<Item> loot;
+    List<Item> loot = new List<Item>();
 
     [Header("--- Ship ---")]
     [SerializeField] int health;
@@ -251,7 +251,12 @@ public class enemyAI : MonoBehaviour, IDamage
         //Game object should stop orbitting and continue in direction it was last traveling as well.
         //Game object should stop shooting.
         yield return new WaitForSeconds(3);
-        Instantiate(lootDrop, transform.position, transform.rotation);
+        loot droppedLoot = Instantiate(lootDrop, transform.position, transform.rotation).GetComponent<loot>();
+        foreach(Item item in loot)
+        {
+            Debug.Log("Loot Added: " + item.itemName);
+            droppedLoot.lootItems.Add(item);
+        }
         Destroy(transform.gameObject);
     }
 

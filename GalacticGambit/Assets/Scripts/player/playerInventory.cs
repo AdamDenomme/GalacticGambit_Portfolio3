@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class playerInventory : MonoBehaviour, IInventory
 {
-    private List<KeyValuePair<Item, int>> items = new List<KeyValuePair<Item, int>>();
+    public List<KeyValuePair<Item, int>> items = new List<KeyValuePair<Item, int>>();
     [SerializeField] List<Image> slots;
     [SerializeField] GameObject inventory;
     public GameObject hoverMenu;
@@ -78,14 +78,7 @@ public class playerInventory : MonoBehaviour, IInventory
                 Item item = items[i].Key;
                 inventorySlot iSlot = slot.GetComponent<inventorySlot>();
                 Debug.Log(iSlot.gameObject.name);
-                iSlot.updateItemInSlot(item.itemName, item.description, item.price, item.sprite);
-                slot.sprite = item.sprite;
-                TextMeshProUGUI count = slot.GetComponentInChildren<TextMeshProUGUI>();
-                if (count != null)
-                {
-                    int itemCount = items[i].Value;
-                    count.text = itemCount.ToString();
-                }
+                iSlot.updateItemInSlot(item.itemName, item.description, item.price, item.sprite, items[i].Value);
                 i++;
             }
             else

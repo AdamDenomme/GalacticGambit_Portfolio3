@@ -80,24 +80,42 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a265e20c010f5bc4bb7d7e9186d5ef58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementSpeed: 50
-  orbitSpeed: 30
-  orbitRange: 50
   bullet: {fileID: 6080334576356808732, guid: 7626e0bd069c89e44b8db4cb62824da5, type: 3}
   bulletShootPosition: {fileID: 2083901772562808079}
-  bulletShootRate: 1.5
-  bulletShootRange: 150
-  bulletCount: 1000
   missle: {fileID: 1614898803305187513, guid: 7389e08b12ce60b47a9bb3aacc1e0179, type: 3}
   missleShootPosition: {fileID: 6985732237114869409}
   lootDrop: {fileID: 6774760183009212736, guid: 4a0f4f84c8bf3764f988a1033547b94f, type: 3}
-  missleShootRate: 2.5
-  missleShootRange: 300
-  missleCount: 50
-  health: 0
+  movementSpeed: 50
+  orbitSpeed: 30
+  orbitRange: 50
   maxAngle: 15
   minRange: 100
   maxRange: 500
+  bulletShootRate: 1.5
+  bulletShootRange: 150
+  bulletCount: 1000
+  missleShootRate: 2.5
+  missleShootRange: 300
+  missleCount: 50
+  possibleLoot:
+  - {fileID: 11400000, guid: 49f46e4df0d911643bab7e4f65d18935, type: 2}
+  - {fileID: 11400000, guid: 15bb11eb849c37c458e6ce10f4746534, type: 2}
+  - {fileID: 11400000, guid: bb467ebf4fa7a15479a9b739380a73ba, type: 2}
+  - {fileID: 11400000, guid: f3ab98a1bfcc2af4a8f7b1ee88f3141b, type: 2}
+  - {fileID: 11400000, guid: 4c10a7ff12072ca49ae11e0647c5922e, type: 2}
+  - {fileID: 11400000, guid: f1b0011cc6aa3d945a62025d0dbe07ac, type: 2}
+  - {fileID: 11400000, guid: ade7f084f6397c04d91236fae98327b1, type: 2}
+  - {fileID: 11400000, guid: 2938558d449ce434398e70675cf67cdf, type: 2}
+  - {fileID: 11400000, guid: 98fd0cb47635e594bb7b3be8f71444c7, type: 2}
+  - {fileID: 11400000, guid: 9d12493164f52824da3ef75f3116e19a, type: 2}
+  - {fileID: 11400000, guid: e7a57db7c5f4d774b8ec8fc52292f37d, type: 2}
+  - {fileID: 11400000, guid: 61d254105fd0a3c4daac18bb278d74ec, type: 2}
+  - {fileID: 11400000, guid: c967c87c8e5de2f4e939c02e40d1332e, type: 2}
+  - {fileID: 11400000, guid: 990e47dacbfc1054ab245260f8a7c2b4, type: 2}
+  - {fileID: 11400000, guid: 5b5df77a698502b478a26b3991682502, type: 2}
+  maxLootPossible: 5
+  health: 0
+  hasShield: 0
 --- !u!33 &912801099899711111
 MeshFilter:
   m_ObjectHideFlags: 0

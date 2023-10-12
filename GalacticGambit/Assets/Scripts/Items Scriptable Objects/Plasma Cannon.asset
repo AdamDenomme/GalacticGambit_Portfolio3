@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9fc067fd0dc118a44adf48fc786ad80d, type: 3}
+  m_Name: Plasma Cannon
+  m_EditorClassIdentifier: 
+  itemName: Plasma Cannon
+  sprite: {fileID: 21300000, guid: 7a70afa0a7905bf49a0bcd328da0b30c, type: 3}
+  price: 85000
+  description: A weapon that shoots Plasma
