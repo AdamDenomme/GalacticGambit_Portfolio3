@@ -15,17 +15,25 @@ public class inventorySlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
     [SerializeField] Image iconImage;
     [SerializeField] Image image;
     [SerializeField] Image border;
+    [Header("--- Do Not Assign ---")]
+    public Item inventoryItem;
+    public bool canBuy;
 
-
-    Sprite icon;
-    string itemName;
-    string description;
-    float price;
+    Sprite icon = null;
+    string itemName = "";
+    string description = "";
+    public float price = 0;
     bool mouseOver;
     bool isHoverMenuSpawned;
-    int count;
+    int count = 0;
 
     bool isSelected;
+
+    void Start()
+    {
+        updateSlot(true);
+    }
+    
     // Update is called once per frame
     void Update()
     {
@@ -43,13 +51,19 @@ public class inventorySlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        Debug.Log("Mouse Over");
         mouseOver = true;
+        updateSlot();
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        mouseOver = false;
+        if(shipManager.instance.inventory.selectedInventorySlot == null)
+        {
+            mouseOver = false;
+            itemNameText.text = "";
+            descriptionText.text = "";
+            priceText.text = "";
+        }
     }
     public void OnPointerClick(PointerEventData eventData)
     {
@@ -57,25 +71,44 @@ public class inventorySlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
         {
             border.gameObject.SetActive(true);
             isSelected = true;
+            shipManager.instance.inventory.iAmSelectedInventorySlot(this);
         }
         else
         {
             border.gameObject.SetActive(false);
             isSelected = false;
+            shipManager.instance.inventory.selectedInventorySlot = null;
         }
         
     }
-    void updateSlot()
+
+    public void unSelect()
     {
-        itemNameText.text = itemName;
-        descriptionText.text = description;
-        priceText.text = "$" + price.ToString();
-        iconImage.sprite = icon;
-        image.sprite = icon;
-        itemCount.text = count.ToString();
+        isSelected = false;
+        border.gameObject.SetActive(false);
     }
 
-    public void updateItemInSlot(string item, string desc, float itemPrice, Sprite iconV, int countV)
+    void updateSlot(bool start = false)
+    {
+        if (shipManager.instance.inventory.selectedInventorySlot == null && !start && inventoryItem != null)
+        {
+            itemNameText.text = itemName;
+            descriptionText.text = description;
+            priceText.text = "$" + price.ToString();
+            iconImage.sprite = icon;
+            image.sprite = icon;
+            itemCount.text = count.ToString();
+        }
+        else if (start)
+        {
+            itemNameText.text = "";
+            descriptionText.text = "";
+            priceText.text = "";
+            itemCount.text = "0";
+        }
+    }
+
+    public void updateItemInSlot(string item, string desc, float itemPrice, Sprite iconV, int countV, Item invItem)
     {
         itemName = item;
         Debug.Log(itemName);
@@ -86,7 +119,19 @@ public class inventorySlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
         icon = iconV;
         Debug.Log(icon);
         count = countV;
+        Debug.Log(count);
+        inventoryItem = invItem;
+        Debug.Log(inventoryItem);
 
         updateSlot();
+    }
+
+    public void clearSlot()
+    {
+        itemNameText.text = "";
+        descriptionText.text = "";
+        priceText.text = "";
+        itemCount.text = "0";
+        iconImage.sprite = null;
     }
 }

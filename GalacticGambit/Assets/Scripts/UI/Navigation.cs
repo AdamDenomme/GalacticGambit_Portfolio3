@@ -38,7 +38,7 @@ public class Navigation : MonoBehaviour
     {
         levelGeneration.instance.selectLevel();
 
-        for(int i = 0; i <= levelGeneration.instance.encounters.Count; i++)
+        for(int i = 0; i <= levelGeneration.instance.encounters.Count-1; i++)
         {
             int height = Random.Range(0, 6);
 
