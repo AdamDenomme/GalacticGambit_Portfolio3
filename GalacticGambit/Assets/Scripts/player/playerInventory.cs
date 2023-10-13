@@ -56,7 +56,7 @@ public class playerInventory : MonoBehaviour, IInventory
         {
             KeyValuePair<Item, int> existingItem = items.Find(kv => kv.Key == item);
             items.Remove(existingItem);
-            if(existingItem.Value <= 0)
+            if(existingItem.Value < 1)
             {
                 updateInventory();
             }
@@ -120,6 +120,23 @@ public class playerInventory : MonoBehaviour, IInventory
                 money -= (int)selectedInventorySlot.price;
                 addItem(selectedInventorySlot.inventoryItem);
                 StartCoroutine(itemPurchased());
+
+                foreach (inventorySlot slot in playerInventorySlotsForShop)
+                {
+                    slot.clearSlot();
+                }
+
+                int k = 0;
+                foreach (inventorySlot slot in playerInventorySlotsForShop)
+                {
+                    if (k < items.Count)
+                    {
+                        Item item = items[k].Key;
+                        Debug.Log(slot.gameObject.name);
+                        slot.updateItemInSlot(item.itemName, item.description, item.price, item.sprite, items[k].Value, item);
+                        k++;
+                    }
+                }
             }
             else
             {

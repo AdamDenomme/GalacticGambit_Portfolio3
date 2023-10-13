@@ -15,6 +15,8 @@ public class inventorySlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
     [SerializeField] Image iconImage;
     [SerializeField] Image image;
     [SerializeField] Image border;
+    [SerializeField] Sprite defaultImage;
+
     [Header("--- Do Not Assign ---")]
     public Item inventoryItem;
     public bool canBuy;
@@ -47,6 +49,7 @@ public class inventorySlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
             isHoverMenuSpawned = false;
             shipManager.instance.inventory.hoverMenu.gameObject.SetActive(false);
         }
+        updateSlot();
     }
 
     public void OnPointerEnter(PointerEventData eventData)
@@ -98,13 +101,26 @@ public class inventorySlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
             iconImage.sprite = icon;
             image.sprite = icon;
             itemCount.text = count.ToString();
+        }else if (shipManager.instance.inventory.selectedInventorySlot != null && !start && inventoryItem != null)
+        {
+            iconImage.sprite = icon;
+            image.sprite = icon;
+            itemCount.text = count.ToString();
         }
-        else if (start)
+        else if (start || inventoryItem == null)
         {
             itemNameText.text = "";
             descriptionText.text = "";
             priceText.text = "";
             itemCount.text = "0";
+        }
+        if(count <= 0)
+        {
+            itemNameText.text = "";
+            descriptionText.text = "";
+            priceText.text = "";
+            itemCount.text = "0";
+            image.sprite = defaultImage;
         }
     }
 
@@ -133,5 +149,6 @@ public class inventorySlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
         priceText.text = "";
         itemCount.text = "0";
         iconImage.sprite = null;
+        icon = null;
     }
 }
