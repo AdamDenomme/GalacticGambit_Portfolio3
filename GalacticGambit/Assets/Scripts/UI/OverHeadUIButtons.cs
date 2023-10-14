@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
+using UnityEditor;
 using UnityEditor.Rendering;
 using UnityEngine;
 
@@ -15,6 +16,7 @@ public class OverHeadUIButtons : MonoBehaviour
     public bool willunPause;
     public int isPausing;
     private bool isActive;
+    public int timeNeeded;
 
 
     public void openUI()
@@ -66,5 +68,25 @@ public class OverHeadUIButtons : MonoBehaviour
         }
     }
 
-    
+    public void closeAfterAnimation()
+    {
+       // StartCoroutine("waitTime");
+       // //UIObject.SetActive(false);
+       // isActive = true;
+       //
+       // if (isActive)
+       // {
+       //     UIObject.SetActive(true);
+       // }
+    }
+
+    IEnumerator waitTime()
+    {
+        yield return new WaitForSeconds(4000);
+    }
+
+    public void openAfterAnimation()
+    {
+        menuParent.SetActive(false);
+    }
 }
