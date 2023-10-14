@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e09e065dde059fc49a958a56e4249d29, type: 3}
+  m_Name: Hard - Neutron Star
+  m_EditorClassIdentifier: 
+  encounters:
+  - {fileID: 8177470291127071704, guid: 1894a06b075b4534a9d39703b813188e, type: 3}
+  - {fileID: 8177470291127071704, guid: 5939d8c0ceb38a6409585a0334056d25, type: 3}
+  - {fileID: 8177470291127071704, guid: 6147a20ca6255d3438ce8fb75f03378b, type: 3}
+  - {fileID: 8177470291127071704, guid: 2b56645afcd62394e8f14f5bbc6790df, type: 3}
+  - {fileID: 8177470291127071704, guid: 8e191a4a7a4b8ef47a6fe52eb00aeed1, type: 3}
+  - {fileID: 8177470291127071704, guid: d6e889a92d61e5746ba0f35fc2ec505b, type: 3}
+  - {fileID: 8177470291127071704, guid: 7f09fb1b43793b24dbf3ad0cc8960397, type: 3}
+  loot: []
+  lootRatio: 0
+  skybox: {fileID: 2100000, guid: 42eaf2c5dbb13dc498f15df5a5b05fda, type: 2}
+  timeToCompleteMax: 0
+  timeToCompleteMin: 0
+  numberOfEncountersMax: 0
+  numberOfEncountersMin: 0

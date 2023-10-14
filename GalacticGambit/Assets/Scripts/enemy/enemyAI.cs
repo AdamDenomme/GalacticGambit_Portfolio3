@@ -39,7 +39,7 @@ public class enemyAI : MonoBehaviour, IDamage
     [SerializeField] int maxShield;
     [SerializeField] int regenTime;
     bool isRegening;
-    int currentShield;
+    public int currentShield;
 
     [Header("--- Ship ---")]
     [SerializeField] int health;
@@ -238,20 +238,26 @@ public class enemyAI : MonoBehaviour, IDamage
 
     IEnumerator shootBullet()
     {
-        isShootingBullet = true;
-        //Debug.Log("Spawn bullet");
-        Instantiate(bullet, bulletShootPosition.transform.position, transform.rotation);
-        bulletCount--;
-        yield return new WaitForSeconds(bulletShootRate);
-        isShootingBullet = false;
+        if (isShootingBullet != true)
+        {
+            isShootingBullet = true;
+            //Debug.Log("Spawn bullet");
+            Instantiate(bullet, bulletShootPosition.transform.position, transform.rotation);
+            bulletCount--;
+            yield return new WaitForSeconds(bulletShootRate);
+            isShootingBullet = false;
+        }
     }
     IEnumerator shootMissle()
     {
-        isShootingMissle = true;
-        Instantiate(missle, missleShootPosition.transform.position, transform.rotation);
-        missleCount--;
-        yield return new WaitForSeconds(missleShootRate);
-        isShootingMissle = false;
+        if (isShootingMissle != true)
+        {
+            isShootingMissle = true;
+            Instantiate(missle, missleShootPosition.transform.position, transform.rotation);
+            missleCount--;
+            yield return new WaitForSeconds(missleShootRate);
+            isShootingMissle = false;
+        }
     }
 
     IEnumerator explode()
@@ -297,7 +303,7 @@ public class enemyAI : MonoBehaviour, IDamage
             StartCoroutine(explode());
         }
 
-        if(currentShield <= 0 && hasShield)
+        if(currentShield <= 0 && hasShield && !isRegening)
         {
             StartCoroutine(shieldRegen());
         }

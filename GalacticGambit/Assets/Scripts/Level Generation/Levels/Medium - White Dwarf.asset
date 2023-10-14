@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e09e065dde059fc49a958a56e4249d29, type: 3}
+  m_Name: Medium - White Dwarf
+  m_EditorClassIdentifier: 
+  encounters:
+  - {fileID: 8177470291127071704, guid: 2b56645afcd62394e8f14f5bbc6790df, type: 3}
+  - {fileID: 8177470291127071704, guid: 568b92c011beea643a7aa87642b7dfc4, type: 3}
+  - {fileID: 8177470291127071704, guid: 32d5929892535bd49a5801ec76f283cf, type: 3}
+  - {fileID: 8177470291127071704, guid: 55a281c6cd600df449f7ed58af67bc06, type: 3}
+  - {fileID: 8177470291127071704, guid: 5939d8c0ceb38a6409585a0334056d25, type: 3}
+  - {fileID: 8177470291127071704, guid: 6147a20ca6255d3438ce8fb75f03378b, type: 3}
+  - {fileID: 8177470291127071704, guid: e9a800a0e6f249a4093031929e0375e1, type: 3}
+  loot: []
+  lootRatio: 0
+  skybox: {fileID: 2100000, guid: 42eaf2c5dbb13dc498f15df5a5b05fda, type: 2}
+  timeToCompleteMax: 0
+  timeToCompleteMin: 0
+  numberOfEncountersMax: 0
+  numberOfEncountersMin: 0

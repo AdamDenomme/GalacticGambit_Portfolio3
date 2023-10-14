@@ -51,6 +51,9 @@ public class shipManager : MonoBehaviour, IDamage
     [SerializeField] Animator animator;
 
 
+    public int ammoTotal;
+    public int missleTotal;
+
     bool checkShipIsRunning;
     void Awake()
     {

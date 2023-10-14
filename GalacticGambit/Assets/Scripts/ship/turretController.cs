@@ -16,6 +16,11 @@ public class turretController : MonoBehaviour
     [SerializeField] Transform bulletSpawn;
     [SerializeField] ParticleSystem tractorParicle;
     [SerializeField] int maxAmmo;
+    [SerializeField] int maxMissle;
+    [SerializeField] GameObject laser;
+    [SerializeField] GameObject misslePrefab;
+    [SerializeField] float missleAttackSpeed;
+    public int missleAmmo;
     public int currentAmmo;
     public TMP_Text ammo;
 
@@ -23,9 +28,11 @@ public class turretController : MonoBehaviour
 
     public bool isActive;
     bool isShooting;
+    bool isMissling;
 
     private void Start()
     {
+        missleAmmo = maxMissle;
         currentAmmo = maxAmmo;
         updateAmmoUI();
     }
@@ -36,6 +43,7 @@ public class turretController : MonoBehaviour
         if (isActive)
         {
             float rotationAngle;
+            laser.SetActive(true);
 
             if (Input.GetButton("turret+"))
             {
@@ -54,6 +62,13 @@ public class turretController : MonoBehaviour
                 if (!isShooting)
                 {
                     StartCoroutine(shoot());
+                }
+            }
+            if (Input.GetButton("Missle"))
+            {
+                if (!isMissling)
+                {
+                    StartCoroutine(shootMissle());
                 }
             }
             
@@ -91,7 +106,12 @@ public class turretController : MonoBehaviour
                 tractorParicle.gameObject.SetActive(false);
             }
         }
+        else
+        {
+            laser.SetActive(false);
+        }
         updateAmmoUI();
+
     }
 
     IEnumerator shoot()
@@ -101,13 +121,23 @@ public class turretController : MonoBehaviour
             isShooting = true;
             GameObject spawnedBullet = Instantiate(bullet, bulletSpawn);
             spawnedBullet.transform.parent = null;
+            currentAmmo -= 1;
             yield return new WaitForSeconds(attackSpeed);
-            currentAmmo = currentAmmo - (int)attackSpeed;
             isShooting = false;
             updateAmmoUI();
         }
-        else
+    }
+    IEnumerator shootMissle()
+    {
+        if(missleAmmo > 0)
         {
+            isMissling = true;
+            GameObject spawnedMissle = Instantiate(misslePrefab, bulletSpawn);
+            spawnedMissle.transform.parent = null;
+            missleAmmo -= 1;
+            yield return new WaitForSeconds(missleAttackSpeed);
+            isMissling = false;
+            updateAmmoUI();
 
         }
     }
@@ -115,5 +145,7 @@ public class turretController : MonoBehaviour
     public void updateAmmoUI()
     {
         ammo.text = "Ammunition: " + currentAmmo.ToString() + "/" + maxAmmo.ToString();
+        shipManager.instance.ammoTotal = currentAmmo;
+        shipManager.instance.missleTotal = missleAmmo;
     }
 }

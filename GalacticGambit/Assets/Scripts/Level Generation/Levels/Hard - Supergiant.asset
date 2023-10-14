@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e09e065dde059fc49a958a56e4249d29, type: 3}
+  m_Name: Hard - Supergiant
+  m_EditorClassIdentifier: 
+  encounters:
+  - {fileID: 8177470291127071704, guid: 6147a20ca6255d3438ce8fb75f03378b, type: 3}
+  - {fileID: 8177470291127071704, guid: a17a6ed982112e641a0f495248f905a8, type: 3}
+  - {fileID: 8177470291127071704, guid: 717f7d70908266a449e21e1630ea3d40, type: 3}
+  - {fileID: 8177470291127071704, guid: 5939d8c0ceb38a6409585a0334056d25, type: 3}
+  - {fileID: 8177470291127071704, guid: 118802c654d06ef4082a68508e8f908c, type: 3}
+  - {fileID: 8177470291127071704, guid: 1894a06b075b4534a9d39703b813188e, type: 3}
+  - {fileID: 8177470291127071704, guid: e9a800a0e6f249a4093031929e0375e1, type: 3}
+  loot: []
+  lootRatio: 0
+  skybox: {fileID: 2100000, guid: 69e10e886d52d20478f9ed5424126be8, type: 2}
+  timeToCompleteMax: 0
+  timeToCompleteMin: 0
+  numberOfEncountersMax: 0
+  numberOfEncountersMin: 0

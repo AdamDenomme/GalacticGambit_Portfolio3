@@ -48,7 +48,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rigidBody: {fileID: 7367750663162343411}
-  damage: 5
+  damage: 1
   speed: 300
   destoryTime: 10
   paricle: {fileID: 7421173015073799147, guid: a209d4be982fe0d42a10b67d919d8a4e, type: 3}

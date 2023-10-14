@@ -45,6 +45,7 @@ public class levelGeneration : MonoBehaviour
         skybox = levels[random].skybox;
         numberOfEncountersMax = levels[random].numberOfEncountersMax;
         numberOfEncountersMin = levels[random].numberOfEncountersMin;
+        encounters = levels[random].encounters;
         setLevel();
     }
 
