@@ -33,13 +33,22 @@ public class enemyAI : MonoBehaviour, IDamage
     [SerializeField] int maxLootPossible;
     List<Item> loot = new List<Item>();
 
+    [Header("--- Shop Shield ---")]
+    [SerializeField] GameObject shield;
+    [SerializeField] bool hasShield;
+    [SerializeField] int maxShield;
+    [SerializeField] int regenTime;
+    bool isRegening;
+    int currentShield;
+
     [Header("--- Ship ---")]
     [SerializeField] int health;
-    [SerializeField] bool hasShield;
+    
 
     private bool isOrbitting;
     private bool isShootingBullet;
     private bool isShootingMissle;
+    
     private Vector3 lastPosition;
     private enum AIState
     {
@@ -63,6 +72,7 @@ public class enemyAI : MonoBehaviour, IDamage
         health = Random.Range(1, health);
         bulletShootRate = Random.Range(bulletShootRate, bulletShootRate * 3);
         missleShootRate = Random.Range(missleShootRate, missleShootRate * 3);
+        currentShield = maxShield;
     }
 
     void setLoot()
@@ -260,13 +270,36 @@ public class enemyAI : MonoBehaviour, IDamage
         Destroy(transform.gameObject);
     }
 
+    IEnumerator shieldRegen()
+    {
+        isRegening = true;
+        shield.SetActive(false);
+        yield return new WaitForSeconds(regenTime);
+        shield.SetActive(true);
+        isRegening = false;
+    }
+
     public void takeDamage(int amount)
     {
-        health -= amount;
+        
+
+        if(currentShield > 0 && !isRegening && hasShield)
+        {
+            currentShield -= amount;
+        }
+        else
+        {
+            health -= amount;
+        }
 
         if(health <= 0)
         {
             StartCoroutine(explode());
+        }
+
+        if(currentShield <= 0 && hasShield)
+        {
+            StartCoroutine(shieldRegen());
         }
 
     }
