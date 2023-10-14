@@ -5,7 +5,13 @@ using UnityEngine.AI;
 using UnityEngine.UI;
 using UnityEngine.UIElements;
 using TMPro;
+using JetBrains.Annotations;
+using Unity.PlasticSCM.Editor.WebApi;
+using UnityEditor;
+using System.IO;
+using UnityEngine.XR;
 
+[System.Serializable]
 public class crewMember : MonoBehaviour, IDamage
 {
     [Header("--- Components ---")]
@@ -25,7 +31,10 @@ public class crewMember : MonoBehaviour, IDamage
     bool isSelected;
     GameObject inGameWaypointMarker;
     public IInteractable selectedInteraction;
-    
+
+    public static List<crewMember> list = new List<crewMember>();
+
+
     private void Start()
     {
         startHealth = health;
@@ -45,6 +54,7 @@ public class crewMember : MonoBehaviour, IDamage
             }
         }
         stabilityCrew();
+
         // For damage testing.
         //StartCoroutine(damageTest());
     }
@@ -191,6 +201,25 @@ public class crewMember : MonoBehaviour, IDamage
             crewStability.color = Color.red;
         }
     }
+
+    public void Save()
+    {
+        Vector3 savedPosition = transform.position;
+        int savedHP = health;
+        IInteractable savedinteraction = selectedInteraction;
+        //sss
+        string[] data = new string[]
+        {
+            ""+savedPosition,
+            ""+savedHP,
+            ""+savedinteraction
+        };
+
+        string json = string.Join("\n", data);
+        File.WriteAllText(Application.persistentDataPath + "/save.txt", json);
+    }
+
+
     //Function for damage testing.
 
     //IEnumerator damageTest()
