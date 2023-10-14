@@ -7473,7 +7473,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -7.999878, y: -37}
+  m_AnchoredPosition: {x: -8, y: -37}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &431340813
@@ -13339,11 +13339,10 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 3126115098833951083, guid: 8c4e80b446484da458619f9c1523468d, type: 3}
   m_PrefabInstance: {fileID: 8097297509360234684}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1460374118
+--- !u!114 &1460374119 stripped
 MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 8930640017544937295, guid: 8c4e80b446484da458619f9c1523468d, type: 3}
+  m_PrefabInstance: {fileID: 8097297509360234684}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1460374112}
   m_Enabled: 1
@@ -13351,11 +13350,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53e714085953bb74f8056738e106811e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UIObject: {fileID: 2130206215}
-  menuParent: {fileID: 0}
-  willPause: 1
-  willunPause: 0
-  isPausing: 0
 --- !u!1 &1465534887
 GameObject:
   m_ObjectHideFlags: 0
@@ -19249,16 +19243,16 @@ PrefabInstance:
       objectReference: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
     - target: {fileID: 4646414326817218629, guid: 8c4e80b446484da458619f9c1523468d, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4646414326817218629, guid: 8c4e80b446484da458619f9c1523468d, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1460374118}
+      objectReference: {fileID: 1460374119}
     - target: {fileID: 4646414326817218629, guid: 8c4e80b446484da458619f9c1523468d, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
-      objectReference: {fileID: 1460374118}
+      objectReference: {fileID: 1460374119}
     - target: {fileID: 4646414326817218629, guid: 8c4e80b446484da458619f9c1523468d, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Target
       value: 
@@ -19551,6 +19545,14 @@ PrefabInstance:
       propertyPath: defaultImage
       value: 
       objectReference: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+    - target: {fileID: 8930640017544937295, guid: 8c4e80b446484da458619f9c1523468d, type: 3}
+      propertyPath: UIObject
+      value: 
+      objectReference: {fileID: 2130206215}
+    - target: {fileID: 8930640017544937295, guid: 8c4e80b446484da458619f9c1523468d, type: 3}
+      propertyPath: willPause
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9083107585758734993, guid: 8c4e80b446484da458619f9c1523468d, type: 3}
       propertyPath: iconImage
       value: 
@@ -19576,7 +19578,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
     m_RemovedComponents:
-    - {fileID: 8930640017544937295, guid: 8c4e80b446484da458619f9c1523468d, type: 3}
     - {fileID: 3970782388180447975, guid: 8c4e80b446484da458619f9c1523468d, type: 3}
     - {fileID: 1383402972505404501, guid: 8c4e80b446484da458619f9c1523468d, type: 3}
     - {fileID: 1002909519289513320, guid: 8c4e80b446484da458619f9c1523468d, type: 3}
@@ -19688,9 +19689,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 3164202609563170625, guid: 8c4e80b446484da458619f9c1523468d, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1379684946}
-    - targetCorrespondingSourceObject: {fileID: 9066987632848716725, guid: 8c4e80b446484da458619f9c1523468d, type: 3}
-      insertIndex: 2
-      addedObject: {fileID: 1460374118}
   m_SourcePrefab: {fileID: 100100000, guid: 8c4e80b446484da458619f9c1523468d, type: 3}
 --- !u!114 &8555448989588449319 stripped
 MonoBehaviour:
