@@ -7,6 +7,7 @@ public class CreditsPlay : MonoBehaviour
 {
     public Animator credits;
     public GameObject mainCamera;
+    public GameObject creditsMenu;
 
     // Start is called before the first frame update
     void Start()
@@ -21,5 +22,10 @@ public class CreditsPlay : MonoBehaviour
     public void backToMenu()
     {
         credits.SetBool("isPressed", false);
+    }
+
+    IEnumerator WaitTime()
+    {
+        yield return new WaitForSeconds(3);
     }
 }

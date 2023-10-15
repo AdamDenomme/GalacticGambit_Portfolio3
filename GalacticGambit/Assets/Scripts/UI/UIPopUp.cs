@@ -12,6 +12,7 @@ public class UIPopUp : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        StopAllCoroutines();
         StartCoroutine(popUpUI(cutsceneTime));
     }
 

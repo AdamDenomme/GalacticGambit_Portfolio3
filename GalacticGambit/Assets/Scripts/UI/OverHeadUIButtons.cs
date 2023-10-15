@@ -80,9 +80,9 @@ public class OverHeadUIButtons : MonoBehaviour
        // }
     }
 
-    IEnumerator waitTime()
+    IEnumerator waitTime(int TimeNeeded)
     {
-        yield return new WaitForSeconds(4000);
+        yield return new WaitForSecondsRealtime(TimeNeeded);
     }
 
     public void openAfterAnimation()
