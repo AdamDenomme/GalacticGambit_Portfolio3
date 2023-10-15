@@ -11,8 +11,8 @@ public class shipManager : MonoBehaviour, IDamage
     [SerializeField] List<GameObject> thrusters;
 
     [Header("--- Ship Stats ---")]
-    int health;
-    [SerializeField] int maxHealth;
+    public int health;
+    public int maxHealth;
 
     [Header("--- Power System ---")]
     [SerializeField] Image powerAvailableIndicator;
@@ -22,8 +22,8 @@ public class shipManager : MonoBehaviour, IDamage
     public float powerAvailable;
     public float powerConsumption;
     //Battery storage
-    float reservePower;
-    float reservePowerCapacity;
+    public float reservePower;
+    public float reservePowerCapacity;
 
     [Header("--- Hull ---")]
     [SerializeField] Image hullIndicator;
@@ -35,7 +35,7 @@ public class shipManager : MonoBehaviour, IDamage
     //public shipController shipController;
 
     [Header("--- Shield System ---")]
-    [SerializeField] shield shield;
+    public shield shield;
     [SerializeField] Image shieldIndicator;
     [SerializeField] TMP_Text shieldText;
     //Applied when a subsystem is manned by a crew member.
@@ -53,6 +53,7 @@ public class shipManager : MonoBehaviour, IDamage
 
     public int ammoTotal;
     public int missleTotal;
+    public turretController turretController;
 
     bool checkShipIsRunning;
     void Awake()

@@ -9,4 +9,8 @@ public class Item : ScriptableObject
     public Sprite sprite;
     public int price;
     public string description;
+    public bool isEquipable;
+    public bool isShipRoom;
+    public GameObject roomPrefab;
+    public Equipment equipment;
 }

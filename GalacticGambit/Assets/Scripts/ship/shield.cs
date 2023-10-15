@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class shield : MonoBehaviour, IDamage
 {
-    [SerializeField] int regenTime;
+    public int regenTime;
     [SerializeField] Collider meshCollider;
     [SerializeField] Renderer meshRenderer;
     public int health;

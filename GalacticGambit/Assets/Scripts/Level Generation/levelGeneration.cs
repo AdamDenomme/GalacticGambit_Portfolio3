@@ -21,6 +21,7 @@ public class levelGeneration : MonoBehaviour
     public int numberOfEncountersMax;
     public int numberOfEncountersMin;
     public int numberOfEncounters;
+    public AudioClip music;
 
     GameObject currentEncounter;
 
@@ -46,6 +47,7 @@ public class levelGeneration : MonoBehaviour
         numberOfEncountersMax = levels[random].numberOfEncountersMax;
         numberOfEncountersMin = levels[random].numberOfEncountersMin;
         encounters = levels[random].encounters;
+        music = levels[random].levelMusic;
         setLevel();
     }
 
@@ -66,6 +68,8 @@ public class levelGeneration : MonoBehaviour
             int selectedLoot = Random.Range(0, possibleLoot.Count);
             lootSpawned.Add(possibleLoot[selectedLoot]);
         }
+        gamemanager.instance.musicPlayer.clip = music;
+        gamemanager.instance.musicPlayer.Play();
     }
 
     void spawnEncounter()

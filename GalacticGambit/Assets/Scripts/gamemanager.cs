@@ -17,6 +17,7 @@ public class gamemanager : MonoBehaviour
         public List<gun> gunList;
         [SerializeField] int experienceToNextLevel;
         public topDownPlayerController topDownPlayerController;
+        public AudioSource musicPlayer;
 
         //[Header("--- UI Components ---")]
         public List<Image> inventoryItems;

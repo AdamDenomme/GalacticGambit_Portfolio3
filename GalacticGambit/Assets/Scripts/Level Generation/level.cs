@@ -13,4 +13,5 @@ public class level : ScriptableObject
     public int timeToCompleteMin;
     public int numberOfEncountersMax;
     public int numberOfEncountersMin;
+    public AudioClip levelMusic;
 }

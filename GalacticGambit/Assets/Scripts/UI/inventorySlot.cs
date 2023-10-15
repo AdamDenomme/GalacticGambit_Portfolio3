@@ -100,26 +100,38 @@ public class inventorySlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
             priceText.text = "$" + price.ToString();
             iconImage.sprite = icon;
             image.sprite = icon;
-            itemCount.text = count.ToString();
+            if (itemCount != null)
+            {
+                itemCount.text = count.ToString();
+            }
         }else if (shipManager.instance.inventory.selectedInventorySlot != null && !start && inventoryItem != null)
         {
             iconImage.sprite = icon;
             image.sprite = icon;
-            itemCount.text = count.ToString();
+            if (itemCount != null)
+            {
+                itemCount.text = count.ToString();
+            }
         }
         else if (start || inventoryItem == null)
         {
             itemNameText.text = "";
             descriptionText.text = "";
             priceText.text = "";
-            itemCount.text = "0";
+            if (itemCount != null)
+            {
+                itemCount.text = "0";
+            }
         }
         if(count <= 0)
         {
             itemNameText.text = "";
             descriptionText.text = "";
             priceText.text = "";
-            itemCount.text = "0";
+            if(itemCount != null)
+            {
+                itemCount.text = "0";
+            }
             image.sprite = defaultImage;
         }
     }

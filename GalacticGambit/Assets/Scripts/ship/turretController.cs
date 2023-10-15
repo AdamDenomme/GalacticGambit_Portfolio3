@@ -8,8 +8,9 @@ public class turretController : MonoBehaviour
 {
     [SerializeField] List<GameObject> variations;
     [SerializeField] GameObject bullet;
-    [SerializeField] float attackSpeed;
-    [SerializeField] int rotationSpeed;
+    public float attackSpeed;
+    public int rotationSpeed;
+    public int additionalDamage;
     [SerializeField] float tractorSpeed;
     [SerializeField] Sprite reticle;
     [SerializeField] Camera camera;

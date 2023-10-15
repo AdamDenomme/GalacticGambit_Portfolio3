@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using static UnityEditor.Progress;
 
 public class playerInventory : MonoBehaviour, IInventory
 {
@@ -13,16 +14,44 @@ public class playerInventory : MonoBehaviour, IInventory
     [SerializeField] List<Item> shopInventory;
     [SerializeField] List<inventorySlot> shopInventorySlots;
     [SerializeField] List<inventorySlot> playerInventorySlotsForShop;
+    [SerializeField] List<Item> possibleShopItems;
     [SerializeField] List<Item> possibleInventoryItems;
     [SerializeField] GameObject notEnoughMoneyUI;
     [SerializeField] GameObject noItemSelectedUI;
     [SerializeField] GameObject itemPurchasedUI;
     [SerializeField] GameObject itemSoldUI;
+
+    [Header("--- Upgrades ---")]
+    [SerializeField] List<Item> weaponUpgrades;
+    [SerializeField] List<inventorySlot> weaponUpgradesUI;
+    [SerializeField] List<Item> shieldUpgrades;
+    [SerializeField] List<inventorySlot> shieldUpgradesUI;
+    [SerializeField] List<Item> hullUpgrades;
+    [SerializeField] List<inventorySlot> hullUpgradesUI;
+    [SerializeField] List<Item> powerUpgrades;
+    [SerializeField] List<inventorySlot> powerUpgradesUI;
+    [SerializeField] GameObject tooManyUpgradesUI;
+    [SerializeField] GameObject notEquipableItemUI;
+
     public int money;
     public GameObject hoverMenu;
     public inventorySlot selectedInventorySlot;
 
+    float defaultAttackSpeed;
+    int defaultDamage;
+    int defaultRotationSpeed;
+    int defaultShieldHealth;
+    int defaultShieldRegenTime;
+    int defaultHullHealth;
+    float defaultPowerAvailable;
+    float defaultBatteryCapacity;
 
+    bool firstUpgradeRun;
+
+    private void Start()
+    {
+        
+    }
     private void Update()
     {
         if (Input.GetButtonDown("Inventory") && !inventory.activeSelf)
@@ -188,7 +217,7 @@ public class playerInventory : MonoBehaviour, IInventory
         shopInventory.Clear();
         for(int i = 0; i < random; i++)
         {
-            shopInventory.Add(possibleInventoryItems[Random.Range(0, possibleInventoryItems.Count)]);
+            shopInventory.Add(possibleShopItems[Random.Range(5, possibleShopItems.Count)]);
         }
 
         int j = 0;
@@ -240,5 +269,121 @@ public class playerInventory : MonoBehaviour, IInventory
         
         yield return new WaitForSeconds(2);
         itemSoldUI.SetActive(false);
+    }
+    IEnumerator notEquipable()
+    {
+        notEquipableItemUI.SetActive(true);
+        yield return new WaitForSeconds(2);
+        notEquipableItemUI.SetActive(false);
+    }
+    IEnumerator tooManyUpgrades()
+    {
+        tooManyUpgradesUI.SetActive(true);
+        yield return new WaitForSeconds(2);
+        tooManyUpgradesUI.SetActive(false);
+    }
+
+    public void equipItem()
+    {
+        Item item = selectedInventorySlot.inventoryItem;
+        if (item.isEquipable)
+        {
+            if(item.equipment.updatetype == Equipment.upgradeType.weaponUpgrade && weaponUpgrades.Count <= 6)
+            {
+                weaponUpgrades.Add(item);
+            }else if (item.equipment.updatetype == Equipment.upgradeType.Shield &&  shieldUpgrades.Count <= 6)
+            {
+                shieldUpgrades.Add(item);
+            }else if (item.equipment.updatetype == Equipment.upgradeType.Hull &&  hullUpgrades.Count <= 6) 
+            { 
+                hullUpgrades.Add(item);
+            }else if (item.equipment.updatetype == Equipment.upgradeType.Power && powerUpgrades.Count <= 6)
+            {
+                powerUpgrades.Add(item);
+            }
+            else
+            {
+                StartCoroutine(tooManyUpgrades());
+            }
+        }
+        else
+        {
+            StartCoroutine(notEquipable());
+        }
+        removeItem(item, 1);
+        setUpgrades();
+    }
+    public void setUpgrades()
+    {
+        if(firstUpgradeRun)
+        {
+            defaultAttackSpeed = shipManager.instance.turretController.attackSpeed;
+            defaultDamage = shipManager.instance.turretController.additionalDamage;
+            defaultRotationSpeed = shipManager.instance.turretController.rotationSpeed;
+            defaultShieldHealth = shipManager.instance.shield.health;
+            defaultShieldRegenTime = shipManager.instance.shield.regenTime;
+            defaultHullHealth = shipManager.instance.maxHealth;
+            defaultPowerAvailable = shipManager.instance.powerAvailable;
+            defaultBatteryCapacity = shipManager.instance.reservePowerCapacity;
+            firstUpgradeRun = false;
+        }
+
+        shipManager.instance.turretController.attackSpeed = defaultAttackSpeed;
+        shipManager.instance.turretController.additionalDamage =  defaultDamage;
+        shipManager.instance.turretController.rotationSpeed=  defaultRotationSpeed;
+        shipManager.instance.shield.health = defaultShieldHealth;
+        shipManager.instance.shield.regenTime = defaultShieldRegenTime;
+        shipManager.instance.maxHealth = defaultHullHealth;
+        shipManager.instance.powerAvailable = defaultPowerAvailable;
+        shipManager.instance.reservePowerCapacity = defaultBatteryCapacity;
+
+        foreach (Item item in weaponUpgrades)
+        {
+            shipManager.instance.turretController.attackSpeed += item.equipment.attackSpeed;
+            shipManager.instance.turretController.additionalDamage += item.equipment.damage;
+            shipManager.instance.turretController.rotationSpeed += item.equipment.turretRotationSpeed;
+        }
+
+        foreach(Item item in shieldUpgrades)
+        {
+            shipManager.instance.shield.health += item.equipment.shieldCapacity;
+            shipManager.instance.shield.regenTime += item.equipment.shieldRechargeRate;
+
+        }
+        foreach(Item item in hullUpgrades)
+        {
+            shipManager.instance.health += item.equipment.hullHealthPoints;
+            shipManager.instance.maxHealth += item.equipment.hullHealthPoints;
+        }
+        foreach(Item item in powerUpgrades)
+        {
+            shipManager.instance.powerAvailable += item.equipment.powerOutput;
+            shipManager.instance.reservePowerCapacity += item.equipment.batterCapacity;
+        }
+        updateUpgradesUI();
+    }
+
+    public void updateUpgradesUI()
+    {
+        for(int i = 0; i < weaponUpgrades.Count-1; i++)
+        {
+            Item item = weaponUpgrades[i];
+            weaponUpgradesUI[i].updateItemInSlot(item.itemName, item.description, item.price, item.sprite, 1, item);
+        }
+        for (int i = 0; i < shieldUpgrades.Count-1; i++)
+        {
+            Item item = shieldUpgrades[i];
+            shieldUpgradesUI[i].updateItemInSlot(item.itemName, item.description, item.price, item.sprite, 1, item);
+        }
+        for (int i = 0; i < powerUpgrades.Count-1; i++)
+        {
+            Item item = powerUpgrades[i];
+            powerUpgradesUI[i].updateItemInSlot(item.itemName, item.description, item.price, item.sprite, 1, item);
+        }
+        for (int i = 0; i < hullUpgrades.Count-1; i++)
+        {
+            Item item = hullUpgrades[i];
+            hullUpgradesUI[i].updateItemInSlot(item.itemName, item.description, item.price, item.sprite, 1, item);
+        }
     }
 }
