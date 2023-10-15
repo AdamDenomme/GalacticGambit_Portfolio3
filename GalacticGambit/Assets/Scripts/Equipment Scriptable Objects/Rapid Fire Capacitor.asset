@@ -12,11 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9fc067fd0dc118a44adf48fc786ad80d, type: 3}
   m_Name: Rapid Fire Capacitor
   m_EditorClassIdentifier: 
-  itemName: 
-  sprite: {fileID: 0}
-  price: 0
-  description: 
-  isEquipable: 0
+  itemName: Rapid Fire Capacitor
+  sprite: {fileID: 21300000, guid: 5e79cfb84c5b7cf4bbd488d353d1a294, type: 3}
+  price: 450000
+  description: This upgrade adds a high-capacity energy storage system to your weapon,
+    allowing it to fire at an increased rate. Your weapon's firing speed will be
+    significantly boosted for a limited time after activation, letting you unleash
+    a barrage of shots on your enemies.
+  isEquipable: 1
   isShipRoom: 0
   roomPrefab: {fileID: 0}
-  equipment: {fileID: 0}
+  equipment: {fileID: 11400000, guid: 283b07c4eab34c34dbebce0d64caea67, type: 2}

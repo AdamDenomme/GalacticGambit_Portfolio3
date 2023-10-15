@@ -12,11 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9fc067fd0dc118a44adf48fc786ad80d, type: 3}
   m_Name: Tachyon Amplifier
   m_EditorClassIdentifier: 
-  itemName: 
-  sprite: {fileID: 0}
-  price: 0
-  description: 
-  isEquipable: 0
+  itemName: Tachyon Amplifier
+  sprite: {fileID: 21300000, guid: ee0cd7317d27d5145acfc8c0c4fd62cb, type: 3}
+  price: 980000
+  description: The Tachyon Amplifier modifies your weapon to fire tachyon particles
+    that pierce through enemy shields and armor, causing substantial damage to the
+    target. This upgrade excels at bypassing defenses and inflicting high single-target
+    damage. +3 Damage
+  isEquipable: 1
   isShipRoom: 0
   roomPrefab: {fileID: 0}
   equipment: {fileID: 0}

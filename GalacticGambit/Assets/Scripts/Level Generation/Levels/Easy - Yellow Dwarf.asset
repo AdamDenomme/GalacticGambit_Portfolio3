@@ -27,3 +27,4 @@ MonoBehaviour:
   timeToCompleteMin: 0
   numberOfEncountersMax: 0
   numberOfEncountersMin: 0
+  levelMusic: {fileID: 8300000, guid: bb32fbe58e3904a5d94ef8995c7d5570, type: 3}

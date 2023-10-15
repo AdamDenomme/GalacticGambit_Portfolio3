@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d29415f9bada8f746bee8a69646ce13d, type: 3}
   m_Name: Quantum Flux Emitter 1
   m_EditorClassIdentifier: 
-  updatetype: 0
+  updatetype: 1
   attackSpeed: 0
   damage: 0
   turretRotationSpeed: 0
   shieldRechargeRate: 0
-  shieldCapacity: 0
+  shieldCapacity: 16
   hullHealthPoints: 0
   batterCapacity: 0
   powerOutput: 0

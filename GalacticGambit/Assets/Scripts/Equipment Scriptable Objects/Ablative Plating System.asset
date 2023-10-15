@@ -12,11 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9fc067fd0dc118a44adf48fc786ad80d, type: 3}
   m_Name: Ablative Plating System
   m_EditorClassIdentifier: 
-  itemName: 
-  sprite: {fileID: 0}
-  price: 0
-  description: 
-  isEquipable: 0
+  itemName: Ablative Plating System
+  sprite: {fileID: 21300000, guid: 59d178eb404ecaf4b8013fb8bb399e63, type: 3}
+  price: 350000
+  description: The Ablative Plating System adds a layer of advanced ablative armor
+    to your ship's hull. This armor can absorb and dissipate incoming damage, reducing
+    the overall wear and tear on your ship's hull and increasing its durability.
+    +10 to Hull Health
+  isEquipable: 1
   isShipRoom: 0
   roomPrefab: {fileID: 0}
-  equipment: {fileID: 0}
+  equipment: {fileID: 11400000, guid: 182640d8c495d62458a4b406aadf6542, type: 2}

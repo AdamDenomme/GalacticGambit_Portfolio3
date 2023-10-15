@@ -20,6 +20,25 @@ MonoBehaviour:
   - {fileID: 8177470291127071704, guid: 2b56645afcd62394e8f14f5bbc6790df, type: 3}
   - {fileID: 8177470291127071704, guid: 6147a20ca6255d3438ce8fb75f03378b, type: 3}
   - {fileID: 8177470291127071704, guid: 5939d8c0ceb38a6409585a0334056d25, type: 3}
+  - {fileID: 8177470291127071704, guid: 2b56645afcd62394e8f14f5bbc6790df, type: 3}
+  - {fileID: 8177470291127071704, guid: 2b56645afcd62394e8f14f5bbc6790df, type: 3}
+  - {fileID: 8177470291127071704, guid: 2b56645afcd62394e8f14f5bbc6790df, type: 3}
+  - {fileID: 8177470291127071704, guid: 717f7d70908266a449e21e1630ea3d40, type: 3}
+  - {fileID: 8177470291127071704, guid: a17a6ed982112e641a0f495248f905a8, type: 3}
+  - {fileID: 8177470291127071704, guid: 2b56645afcd62394e8f14f5bbc6790df, type: 3}
+  - {fileID: 8177470291127071704, guid: 2b56645afcd62394e8f14f5bbc6790df, type: 3}
+  - {fileID: 8177470291127071704, guid: 2b56645afcd62394e8f14f5bbc6790df, type: 3}
+  - {fileID: 8177470291127071704, guid: 2b56645afcd62394e8f14f5bbc6790df, type: 3}
+  - {fileID: 8177470291127071704, guid: 8e191a4a7a4b8ef47a6fe52eb00aeed1, type: 3}
+  - {fileID: 8177470291127071704, guid: a17a6ed982112e641a0f495248f905a8, type: 3}
+  - {fileID: 8177470291127071704, guid: 5939d8c0ceb38a6409585a0334056d25, type: 3}
+  - {fileID: 8177470291127071704, guid: 2b56645afcd62394e8f14f5bbc6790df, type: 3}
+  - {fileID: 8177470291127071704, guid: 6147a20ca6255d3438ce8fb75f03378b, type: 3}
+  - {fileID: 8177470291127071704, guid: 2b56645afcd62394e8f14f5bbc6790df, type: 3}
+  - {fileID: 8177470291127071704, guid: 717f7d70908266a449e21e1630ea3d40, type: 3}
+  - {fileID: 8177470291127071704, guid: a17a6ed982112e641a0f495248f905a8, type: 3}
+  - {fileID: 8177470291127071704, guid: d6e889a92d61e5746ba0f35fc2ec505b, type: 3}
+  - {fileID: 8177470291127071704, guid: a17a6ed982112e641a0f495248f905a8, type: 3}
   loot: []
   lootRatio: 1
   skybox: {fileID: 2100000, guid: 69e10e886d52d20478f9ed5424126be8, type: 2}
@@ -27,3 +46,4 @@ MonoBehaviour:
   timeToCompleteMin: 500
   numberOfEncountersMax: 5
   numberOfEncountersMin: 8
+  levelMusic: {fileID: 8300000, guid: bb32fbe58e3904a5d94ef8995c7d5570, type: 3}

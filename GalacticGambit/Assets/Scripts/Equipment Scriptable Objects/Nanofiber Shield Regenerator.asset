@@ -13,10 +13,14 @@ MonoBehaviour:
   m_Name: Nanofiber Shield Regenerator
   m_EditorClassIdentifier: 
   itemName: Nanofiber Shield Regenerator
-  sprite: {fileID: 0}
-  price: 0
-  description: 
-  isEquipable: 0
+  sprite: {fileID: 21300000, guid: 1cadac654c7260b42b3863870d99718d, type: 3}
+  price: 800000
+  description: The Nanofiber Shield Regenerator deploys a network of nanobots that
+    repair and reinforce your shields. They work tirelessly to mend shield breaches
+    and fortify weak points, resulting in a faster shield recharge rate. This upgrade
+    is particularly effective for maintaining continuous protection during intense
+    battles. -4 Seconds Regeneration Time
+  isEquipable: 1
   isShipRoom: 0
   roomPrefab: {fileID: 0}
-  equipment: {fileID: 0}
+  equipment: {fileID: 11400000, guid: 2fc916eaf28b21d479d5742bfcac5f6b, type: 2}

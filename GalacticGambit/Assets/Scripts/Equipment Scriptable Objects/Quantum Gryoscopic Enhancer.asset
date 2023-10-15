@@ -12,11 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9fc067fd0dc118a44adf48fc786ad80d, type: 3}
   m_Name: Quantum Gryoscopic Enhancer
   m_EditorClassIdentifier: 
-  itemName: 
-  sprite: {fileID: 0}
-  price: 0
-  description: 
-  isEquipable: 0
+  itemName: Quantum Gyroscopic Enhancer
+  sprite: {fileID: 21300000, guid: 2c29612ead2213d499ad2bac22c2a6b6, type: 3}
+  price: 860000
+  description: The Quantum Gyroscopic Enhancer employs quantum mechanics to manipulate
+    the turret's orientation. It allows for near-instantaneous turret rotation, ensuring
+    that your weapon can respond rapidly to threats from any direction. This is particularly
+    useful in scenarios where quick target acquisition is critical. +3 Turret Rotation
+    Speed
+  isEquipable: 1
   isShipRoom: 0
   roomPrefab: {fileID: 0}
   equipment: {fileID: 0}

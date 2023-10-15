@@ -12,11 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9fc067fd0dc118a44adf48fc786ad80d, type: 3}
   m_Name: Advanced Power Cells
   m_EditorClassIdentifier: 
-  itemName: 
-  sprite: {fileID: 0}
-  price: 0
-  description: 
-  isEquipable: 0
+  itemName: Advanced Power Cells
+  sprite: {fileID: 21300000, guid: e9ae788788504954eaa192c1be37c9d6, type: 3}
+  price: 250000
+  description: ' Installing Advanced Power Cells enhances your ship''s battery capacity.
+    These high-capacity energy storage units store more power, allowing your ship
+    to operate various systems, such as shields, weapons, and engines, for an extended
+    period before needing to recharge. +2000 Power Reserve Capacity.'
+  isEquipable: 1
   isShipRoom: 0
   roomPrefab: {fileID: 0}
-  equipment: {fileID: 0}
+  equipment: {fileID: 11400000, guid: 5c1b4aa4965a7214298c2dd5fe08a680, type: 2}

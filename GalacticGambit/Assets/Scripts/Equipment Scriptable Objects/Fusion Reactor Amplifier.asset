@@ -12,11 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9fc067fd0dc118a44adf48fc786ad80d, type: 3}
   m_Name: Fusion Reactor Amplifier
   m_EditorClassIdentifier: 
-  itemName: 
-  sprite: {fileID: 0}
-  price: 0
-  description: 
-  isEquipable: 0
+  itemName: Fusion Reactor Amplifier
+  sprite: {fileID: 21300000, guid: 59982274be046494baed734b41857094, type: 3}
+  price: 650000
+  description: The Fusion Reactor Amplifier upgrade optimizes the fusion reaction
+    process within your ship's power generators, significantly increasing energy
+    output. This allows your ship to generate more power for its various systems,
+    resulting in enhanced overall performance. +100GW/s
+  isEquipable: 1
   isShipRoom: 0
   roomPrefab: {fileID: 0}
-  equipment: {fileID: 0}
+  equipment: {fileID: 11400000, guid: 9f7d3cfa1e5e1b84996643c60186ee0f, type: 2}

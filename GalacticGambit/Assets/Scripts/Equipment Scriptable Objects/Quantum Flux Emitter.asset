@@ -12,11 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9fc067fd0dc118a44adf48fc786ad80d, type: 3}
   m_Name: Quantum Flux Emitter
   m_EditorClassIdentifier: 
-  itemName: 
-  sprite: {fileID: 0}
-  price: 0
-  description: 
-  isEquipable: 0
+  itemName: Quantum Flux Emitter
+  sprite: {fileID: 21300000, guid: 48061d4fbfbfb064db06472d0304e4a4, type: 3}
+  price: 950000
+  description: The Quantum Flux Emitter leverages quantum physics to create extra-dimensional
+    pockets within your shield system. These pockets store excess energy, effectively
+    increasing your shield's capacity. This upgrade provides a significant boost
+    to your overall shield strength, making you more resilient against enemy attacks.
+    +16 Shield Health Points
+  isEquipable: 1
   isShipRoom: 0
   roomPrefab: {fileID: 0}
-  equipment: {fileID: 0}
+  equipment: {fileID: 11400000, guid: b93ba889ccb8d5a42afaf339c23a2108, type: 2}

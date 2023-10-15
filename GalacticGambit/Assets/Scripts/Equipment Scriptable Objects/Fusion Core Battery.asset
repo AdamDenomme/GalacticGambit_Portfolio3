@@ -12,11 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9fc067fd0dc118a44adf48fc786ad80d, type: 3}
   m_Name: Fusion Core Battery
   m_EditorClassIdentifier: 
-  itemName: 
-  sprite: {fileID: 0}
-  price: 0
-  description: 
-  isEquipable: 0
+  itemName: Fusion Core Battery
+  sprite: {fileID: 21300000, guid: cb548bd02cc42b547a23e811a644264d, type: 3}
+  price: 350000
+  description: The Fusion Core Battery replaces traditional power cells with a miniature
+    fusion reactor. This upgrade significantly expands your ship's energy storage
+    capacity, allowing you to use energy-consuming systems for longer periods before
+    needing a recharge. +2500 Battery Reserve Capacity
+  isEquipable: 1
   isShipRoom: 0
   roomPrefab: {fileID: 0}
-  equipment: {fileID: 0}
+  equipment: {fileID: 11400000, guid: a7eafce7e4bbe7642b4261909a6e684a, type: 2}

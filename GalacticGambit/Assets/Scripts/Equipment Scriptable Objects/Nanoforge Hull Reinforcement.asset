@@ -12,11 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9fc067fd0dc118a44adf48fc786ad80d, type: 3}
   m_Name: Nanoforge Hull Reinforcement
   m_EditorClassIdentifier: 
-  itemName: 
-  sprite: {fileID: 0}
-  price: 0
-  description: 
-  isEquipable: 0
+  itemName: Nanoforge Hull Reinforcement
+  sprite: {fileID: 21300000, guid: 9eb94af7ddbd4b44c8f6ca9bd4fe2407, type: 3}
+  price: 450000
+  description: The Nanoforge Hull Reinforcement upgrade employs nanotechnology to
+    continuously repair and reinforce your ship's hull during combat. It ensures
+    that your hull remains in peak condition and can withstand more damage before
+    reaching critical levels.
+  isEquipable: 1
   isShipRoom: 0
   roomPrefab: {fileID: 0}
-  equipment: {fileID: 0}
+  equipment: {fileID: 11400000, guid: 4ca036d3514eb8948b353a6567e4d429, type: 2}

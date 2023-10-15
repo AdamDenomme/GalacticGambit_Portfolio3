@@ -12,11 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9fc067fd0dc118a44adf48fc786ad80d, type: 3}
   m_Name: Reactive Shielded Hull
   m_EditorClassIdentifier: 
-  itemName: 
+  itemName: Reactive Shielded Hull
   sprite: {fileID: 0}
-  price: 0
-  description: 
-  isEquipable: 0
+  price: 750000
+  description: The Reactive Shielded Hull upgrade combines a layer of energy shielding
+    with the hull structure. When the hull takes damage, the energy shield responds
+    by reinforcing the affected area, effectively repairing and strengthening the
+    hull. This feature significantly extends the lifespan and durability of your
+    ship. + 10 Hull Health
+  isEquipable: 1
   isShipRoom: 0
   roomPrefab: {fileID: 0}
-  equipment: {fileID: 0}
+  equipment: {fileID: 11400000, guid: ffc1f50e663b54c4c9aa3fb06bb935ef, type: 2}

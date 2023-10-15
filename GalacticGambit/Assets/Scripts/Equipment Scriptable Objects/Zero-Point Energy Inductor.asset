@@ -12,11 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9fc067fd0dc118a44adf48fc786ad80d, type: 3}
   m_Name: Zero-Point Energy Inductor
   m_EditorClassIdentifier: 
-  itemName: 
+  itemName: Zero-Point Energy Inductor
   sprite: {fileID: 0}
-  price: 0
-  description: 
-  isEquipable: 0
+  price: 980000
+  description: The Zero-Point Energy Inductor harnesses zero-point energy, a theoretical
+    energy source from the vacuum of space. By tapping into this boundless energy
+    reservoir, your ship's generators can produce significantly more power, enabling
+    greater flexibility and performance across all ship systems. +400GW/s
+  isEquipable: 1
   isShipRoom: 0
   roomPrefab: {fileID: 0}
   equipment: {fileID: 0}

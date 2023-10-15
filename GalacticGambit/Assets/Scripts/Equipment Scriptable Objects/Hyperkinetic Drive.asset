@@ -12,11 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9fc067fd0dc118a44adf48fc786ad80d, type: 3}
   m_Name: Hyperkinetic Drive
   m_EditorClassIdentifier: 
-  itemName: 
-  sprite: {fileID: 0}
-  price: 0
-  description: 
-  isEquipable: 0
+  itemName: Hyperkinetic Drive
+  sprite: {fileID: 21300000, guid: ef9dd2ab9ec46fc4ab9e3c6deb53c2fc, type: 3}
+  price: 750000
+  description: This advanced technology harnesses hyperkinetic energy to supercharge
+    your weapon's firing rate. When activated, it temporarily multiplies your weapon's
+    attack speed, allowing you to overwhelm opponents with a storm of projectiles.
+  isEquipable: 1
   isShipRoom: 0
   roomPrefab: {fileID: 0}
-  equipment: {fileID: 0}
+  equipment: {fileID: 11400000, guid: b64e7c48c697a664e86e57bfaaa08852, type: 2}

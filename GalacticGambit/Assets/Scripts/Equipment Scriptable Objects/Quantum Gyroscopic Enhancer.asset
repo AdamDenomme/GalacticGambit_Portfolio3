@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d29415f9bada8f746bee8a69646ce13d, type: 3}
   m_Name: Quantum Gyroscopic Enhancer
   m_EditorClassIdentifier: 
-  updatetype: 0
+  updatetype: 4
   attackSpeed: 0
   damage: 0
-  turretRotationSpeed: 0
+  turretRotationSpeed: 3
   shieldRechargeRate: 0
   shieldCapacity: 0
   hullHealthPoints: 0
