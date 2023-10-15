@@ -63,7 +63,6 @@ public class shipManager : MonoBehaviour, IDamage
 
     private void Start()
     {
-        pilotSeat.takeDamage(10);
     }
 
 
@@ -79,15 +78,15 @@ public class shipManager : MonoBehaviour, IDamage
     IEnumerator checkShip()
     {
         checkShipIsRunning = true;
-        //Apply bonus for manned system.
-        if (pilotSeat.amIManned())
-        {
-            pilotModifier = .3f;
-        }
-        else
-        {
-            pilotModifier = 0;
-        }
+        ////Apply bonus for manned system.
+        //if (pilotSeat.amIManned())
+        //{
+        //    pilotModifier = .3f;
+        //}
+        //else
+        //{
+        //    pilotModifier = 0;
+        //}
 
         //Check is system can sustain power draw, if not start drawing from battery.
         if(powerAvailable < powerConsumption)
