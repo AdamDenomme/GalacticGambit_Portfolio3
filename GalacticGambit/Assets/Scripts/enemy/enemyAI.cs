@@ -75,6 +75,7 @@ public class enemyAI : MonoBehaviour, IDamage
         currentShield = maxShield;
     }
 
+
     void setLoot()
     {
         for(int i = 0; i < maxLootPossible; i++)

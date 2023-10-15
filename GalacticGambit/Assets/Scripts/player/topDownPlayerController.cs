@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Net;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -113,7 +114,7 @@ public class topDownPlayerController : MonoBehaviour
             if (Physics.Raycast(camera.ScreenPointToRay(Input.mousePosition), out hit, 100))
             {
                 crewMember crew;
-                if(hit.collider.TryGetComponent(out crew))
+                if (hit.collider.TryGetComponent(out crew))
                 {
                     selectedCrewMember = crew;
                     selectedCrewMember.toggleSelected(true);

@@ -44,9 +44,10 @@ GameObject:
   - component: {fileID: 912801099899711111}
   - component: {fileID: 6588487527164274088}
   - component: {fileID: 7097567961581666017}
+  - component: {fileID: 1614575172402528565}
   m_Layer: 0
   m_Name: Enemy Fighter
-  m_TagString: Untagged
+  m_TagString: Enemy Ship
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -59,15 +60,15 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3343324554551297872}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 246.53003, y: -9.5, z: -40.103058}
+  m_LocalRotation: {x: -0, y: -0.94480014, z: -0, w: 0.32764718}
+  m_LocalPosition: {x: 246.10449, y: -9.5, z: -40.103058}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4609874479073842329}
   - {fileID: 6535771084297097215}
   m_Father: {fileID: 2348094119678969545}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -141.748, z: 0}
 --- !u!114 &7206927864256743650
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -188,8 +189,34 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
+<<<<<<< Updated upstream:GalacticGambit/Assets/Scripts/Level Generation/Encounters/Easy Enemy 3.prefab
   m_Size: {x: 29.447035, y: 53.669327, z: 19.032085}
   m_Center: {x: 0, y: -5.988903, z: 1.1749077}
+=======
+  m_Size: {x: 29.447035, y: 53.669327, z: 3.74407}
+  m_Center: {x: 0, y: -5.988903, z: -6.4691}
+--- !u!135 &1614575172402528565
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3343324554551297872}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 1
+  m_Center: {x: 0.000030517578, y: 2.077312, z: 0.59873533}
+>>>>>>> Stashed changes:GalacticGambit/Assets/Scripts/Level Generation/Encounters/Encounter 2.prefab
 --- !u!1 &6985732237114869409
 GameObject:
   m_ObjectHideFlags: 0

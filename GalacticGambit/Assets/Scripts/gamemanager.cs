@@ -62,7 +62,7 @@ public class gamemanager : MonoBehaviour
         void Awake()
         {
             instance = this;
-            player = GameObject.FindGameObjectWithTag("Player");
+            player = GameObject.FindGameObjectWithTag("Crew Mate");
             //playerScript = player.GetComponent<playerController>();
             //playerSpawnPos = GameObject.FindGameObjectWithTag("Player Spawn Pos");
             Cursor.lockState = CursorLockMode.Confined;

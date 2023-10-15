@@ -19,6 +19,10 @@ public class missle : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        if (other.CompareTag("Teleporter"))
+        {
+            return;
+        }
         IDamage damageable = other.GetComponent<IDamage>();
         if (damageable != null)
         {
