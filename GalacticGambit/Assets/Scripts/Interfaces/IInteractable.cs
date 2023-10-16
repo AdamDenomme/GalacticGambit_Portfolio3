@@ -21,4 +21,6 @@ public interface IInteractable
     public void toggleEnabled();
 
     public void back();
+
+    public bool amIEnabled();
 }

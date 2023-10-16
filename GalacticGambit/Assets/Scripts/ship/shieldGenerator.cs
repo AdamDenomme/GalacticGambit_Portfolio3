@@ -11,6 +11,7 @@ public class shieldGenerator : MonoBehaviour, IDamage, IInteractable
     [SerializeField] GameObject healthIndicator;
     [SerializeField] Image healthBar;
     [SerializeField] shield shieldScript;
+    [SerializeField] float health;
 
     [SerializeField] Light shieldLight;
     [SerializeField] ParticleSystem shieldParticleSystem;
@@ -25,7 +26,7 @@ public class shieldGenerator : MonoBehaviour, IDamage, IInteractable
     private bool interactable;
     private bool isSitting;
 
-    private float health = 100;
+    private float origHP;
 
     private bool isDisabled;
     private bool updatePower;
@@ -35,6 +36,7 @@ public class shieldGenerator : MonoBehaviour, IDamage, IInteractable
     void Start()
     {
         updatePower = true;
+        origHP = health;
     }
 
     // Update is called once per frame
@@ -50,11 +52,11 @@ public class shieldGenerator : MonoBehaviour, IDamage, IInteractable
             Debug.Log("Stop Interaction");
         }
 
-        if (health < 100 && healthIndicator.gameObject.activeSelf != true)
+        if (health < origHP && healthIndicator.gameObject.activeSelf != true)
         {
             healthIndicator.gameObject.SetActive(true);
         }
-        else if (health >= 100 && healthIndicator.gameObject.activeSelf != false)
+        else if (health >= origHP && healthIndicator.gameObject.activeSelf != false)
         {
             healthIndicator.gameObject.SetActive(false);
         }
@@ -97,7 +99,11 @@ public class shieldGenerator : MonoBehaviour, IDamage, IInteractable
     public void takeDamage(int amount)
     {
         health -= amount;
-        healthBar.fillAmount = health / 100;
+        healthBar.fillAmount = health / origHP;
+        if (health <= 0)
+        {
+            toggleEnabled();
+        }
     }
 
     //The function used to trigger the interaction when an object is interacted with.
@@ -119,7 +125,7 @@ public class shieldGenerator : MonoBehaviour, IDamage, IInteractable
     private IEnumerator repairComponent(int timeToRepair)
     {
         yield return new WaitForSeconds(timeToRepair);
-        health = 100;
+        health = origHP;
     }
 
     public void repair(int experience = 0, int modifier = 0)
@@ -131,6 +137,7 @@ public class shieldGenerator : MonoBehaviour, IDamage, IInteractable
         }
 
         StartCoroutine(repairComponent((int)(baseRepairTime - (baseRepairTime * timeReduction) + modifier)));
+        toggleEnabled();
     }
 
     public void man()
@@ -177,5 +184,9 @@ public class shieldGenerator : MonoBehaviour, IDamage, IInteractable
     public void back()
     {
         gamemanager.instance.toggleInteractionMenu(false);
+    }
+    public bool amIEnabled()
+    {
+        return isDisabled;
     }
 }

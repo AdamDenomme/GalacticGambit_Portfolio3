@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 337506314585948809}
-  - component: {fileID: 7223579690122113765}
+  - component: {fileID: 8607576785243084483}
   - component: {fileID: 4658687872509556216}
   - component: {fileID: 500673909686194327}
   - component: {fileID: 1251787729119904462}
@@ -35,7 +35,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7223579690122113765
+--- !u!114 &8607576785243084483
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -44,13 +44,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 2974476097367970340}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c3b804fcabfdf5546a24d41b6a9c9db4, type: 3}
+  m_Script: {fileID: 11500000, guid: 192bd15fe5d66ce468c2feae162cf252, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   rigidBody: {fileID: 500673909686194327}
   damage: 1
-  speed: 0
-  destoryTime: 10
+  speed: 10
+  destoryTime: 100
   paricle: {fileID: 8736043098573976710, guid: 6c558fcf39229554f865979a36374b22, type: 3}
 --- !u!96 &4658687872509556216
 TrailRenderer:

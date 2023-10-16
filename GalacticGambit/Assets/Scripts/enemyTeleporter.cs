@@ -1,15 +1,17 @@
-using System;
+
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.XR;
 
 public class enemyTeleporter : MonoBehaviour
 {
-    [SerializeField] int randomSpawnChance;
-    [SerializeField] int spawnChance;
+    [Range(0f, 1f)]
+    [SerializeField] float randomSpawnChance;
     [SerializeField] GameObject spawner;
     [SerializeField] GameObject toSpawn;
+    [SerializeField] List<Transform> spawnPoints;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -22,14 +24,11 @@ public class enemyTeleporter : MonoBehaviour
 
     public void teleport()
     {
-        int holder = 0;
-        System.Random rand = new System.Random();
-        holder = rand.Next(randomSpawnChance);
-        
+        float holder = Random.Range(0, 1);
 
-        if (holder <= randomSpawnChance / spawnChance)
+        if (holder <= randomSpawnChance)
         {
-            Instantiate(toSpawn, spawner.transform.position, spawner.transform.rotation);
+            Instantiate(toSpawn, spawnPoints[Random.Range(0, spawnPoints.Count)].position, Quaternion.identity);
         }
         else
         {

@@ -15,11 +15,13 @@ public class enemyAIOnBoard : MonoBehaviour, IDamage
     //[SerializeField] GameObject loot;
     [SerializeField] Collider collide;
     //[SerializeField] AudioSource audio;
+    [SerializeField] int roamDistance;
+    [SerializeField] int roamPauseTime;
 
     [Header("--- Enemy Stats ---")]
     [SerializeField] int healthPoints;
     [SerializeField] int targetFaceSpeed;
-    [SerializeField] int viewAngle;
+    //[SerializeField] int viewAngle;
     [SerializeField] int shootAngle;
     [SerializeField] float shootRate;
     //[SerializeField] int experienceMin;
@@ -35,6 +37,10 @@ public class enemyAIOnBoard : MonoBehaviour, IDamage
     private float stoppingDistOrig;
     private float angleToPlayer;
     private bool isDead;
+    private bool destinationChosen;
+    private GameObject targetLock;
+    private bool isRoaming;
+    //private Vector3 startingPosition;
 
     void Start()
     {
@@ -43,12 +49,19 @@ public class enemyAIOnBoard : MonoBehaviour, IDamage
     }
     void Update()
     {
-        //float enemyVel = agent.velocity.normalized.magnitude;
-        //animator.SetFloat("Speed", Mathf.Lerp(animator.GetFloat("Speed"), enemyVel, Time.deltaTime * animChangeSpeed));
-
-        if (playerInRange && canSeePlayer())
+        if (playerInRange)
         {
 
+        }
+        float agentVelocity = agent.velocity.normalized.magnitude;
+
+        if (playerInRange && !canSeePlayer())
+        {
+            StartCoroutine(roam());
+        }
+        else if (!playerInRange)
+        {
+            StartCoroutine(roam());
         }
     }
 
@@ -56,13 +69,15 @@ public class enemyAIOnBoard : MonoBehaviour, IDamage
     {
         if (!isDead)
         {
-            playerDirection = gamemanager.instance.player.transform.position - (transform.position - Vector3.down);
-            angleToPlayer = Vector3.Angle(new Vector3(playerDirection.x, 0, playerDirection.z), transform.forward);
-
+            if(gamemanager.instance.player != null)
+            {
+                playerDirection = gamemanager.instance.player.transform.position - (transform.position - Vector3.down);
+                angleToPlayer = Vector3.Angle(new Vector3(playerDirection.x, 0, playerDirection.z), transform.forward);
+            }
             RaycastHit hit;
             if (Physics.Raycast(headPos.position, playerDirection, out hit))
             {
-                if (hit.collider.CompareTag("Crew Mate") && angleToPlayer <= viewAngle)
+                if (hit.collider.CompareTag("Crew Mate"))
                 {
                     agent.stoppingDistance = stoppingDistOrig;
                     agent.SetDestination(gamemanager.instance.player.transform.position);
@@ -82,7 +97,6 @@ public class enemyAIOnBoard : MonoBehaviour, IDamage
                 }
             }
         }
-        agent.stoppingDistance = 0;
         return false;
 
     }
@@ -148,4 +162,79 @@ public class enemyAIOnBoard : MonoBehaviour, IDamage
         yield return new WaitForSeconds(5);
         Destroy(gameObject);
     }
+    
+    void OnTriggerStay(Collider other)
+    {
+        if(targetLock == null && other.CompareTag("Interactable"))
+        {
+            targetLock = other.gameObject;
+        }
+        
+        
+            
+            if (other.CompareTag("Crew Mate") && canSeePlayer())
+            {
+            Debug.Log(1);
+                isRoaming = false;
+                targetLock = null;
+                gamemanager.instance.player = other.gameObject;
+            }
+            else if (other.CompareTag("Interactable") && !canSeePlayer() && targetLock != null && agent.remainingDistance <= agent.stoppingDistance && !targetLock.GetComponent<IInteractable>().amIEnabled())
+            {
+            Debug.Log(2);
+            isRoaming = false;
+            agent.SetDestination(targetLock.transform.position);
+                agent.stoppingDistance = stoppingDistOrig;
+
+                playerDirection = targetLock.transform.position - (transform.position - Vector3.down);
+                angleToPlayer = Vector3.Angle(new Vector3(playerDirection.x, 0, playerDirection.z), transform.forward);
+
+                faceTarget();
+
+                if (!isShooting && angleToPlayer <= shootAngle)
+                {
+                Debug.Log(3);
+                StartCoroutine(shoot());
+                    //StartCoroutine(playAudioClip(audio));
+                }
+
+            }
+            else if (targetLock == null && !isRoaming)
+            {
+
+            Debug.Log(4);
+            isRoaming = true;
+            agent.stoppingDistance = 0;
+                StartCoroutine(roam());
+            }
+            
+        if (targetLock != null && targetLock.GetComponent<IInteractable>().amIEnabled())
+        {
+            Debug.Log(5);
+            targetLock = null;
+        }
+
+    }
+    IEnumerator roam()
+    {
+
+        if (agent.remainingDistance < 0.05f && !destinationChosen)
+        {
+            destinationChosen = true;
+            agent.stoppingDistance = 0;
+            yield return new WaitForSeconds(roamPauseTime);
+            //isRoaming = false;
+
+            Vector3 randomPosition = Random.insideUnitSphere * roamDistance;
+            //randomPosition += startingPosition;
+
+            NavMeshHit hit;
+            NavMesh.SamplePosition(randomPosition, out hit, roamDistance, 1);
+            agent.SetDestination(hit.position);
+
+            destinationChosen = false;
+
+        }
+    }
+
 }

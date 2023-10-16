@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class pilotSeat : MonoBehaviour, IInteractable,IDamage
+public class pilotSeat : MonoBehaviour, IInteractable, IDamage
 {
     [SerializeField] string interactionText;
     [SerializeField] string interactionKeyCode;
@@ -18,12 +18,17 @@ public class pilotSeat : MonoBehaviour, IInteractable,IDamage
     private bool interactable;
     private bool isSitting;
 
-    private float health = 100;
+    [SerializeField] float health;
+    private float startHP;
 
     private bool isDisabled;
 
     private bool isManned;
 
+    void Start()
+    {
+        startHP = health;
+    }
     void Update()
     {
         if (interactable && Input.GetButtonDown(interactionKeyCode))
@@ -36,11 +41,11 @@ public class pilotSeat : MonoBehaviour, IInteractable,IDamage
             Debug.Log("Stop Interaction");
         }
 
-        if(health < 100 && healthIndicator.gameObject.activeSelf != true)
+        if(health < startHP && healthIndicator.gameObject.activeSelf != true)
         {
             healthIndicator.gameObject.SetActive(true);
         }
-        else if(health >= 100 && healthIndicator.gameObject.activeSelf != false)
+        else if(health >= startHP && healthIndicator.gameObject.activeSelf != false)
         {
             healthIndicator.gameObject.SetActive(false);
         }
@@ -69,7 +74,11 @@ public class pilotSeat : MonoBehaviour, IInteractable,IDamage
     public void takeDamage(int amount)
     {
         health -= amount;
-        healthBar.fillAmount = health / 100;
+        healthBar.fillAmount = health / startHP;
+        if (health <= 0)
+        {
+            toggleEnabled();
+        }
     }
 
     //The function used to trigger the interaction when an object is interacted with.
@@ -91,7 +100,7 @@ public class pilotSeat : MonoBehaviour, IInteractable,IDamage
     private IEnumerator repairComponent(int timeToRepair)
     {
         yield return new WaitForSeconds(timeToRepair);
-        health = 100;
+        health = startHP;
     }
 
     public void repair(int experience = 0, int modifier = 0)
@@ -103,6 +112,7 @@ public class pilotSeat : MonoBehaviour, IInteractable,IDamage
         }
 
         StartCoroutine(repairComponent((int)(baseRepairTime - (baseRepairTime * timeReduction) + modifier)));
+        toggleEnabled();
     }
 
     public void man()
@@ -132,5 +142,9 @@ public class pilotSeat : MonoBehaviour, IInteractable,IDamage
     public void back()
     {
         gamemanager.instance.toggleInteractionMenu(false);
+    }
+    public bool amIEnabled()
+    {
+        return isDisabled;
     }
 }

@@ -19,13 +19,19 @@ public class navigationOrb : MonoBehaviour, IDamage, IInteractable
     private bool interactable;
     private bool isSitting;
 
-    private float health = 100;
+    [SerializeField] float health;
+    private float startHP;
 
     private bool isDisabled;
 
     private bool isManned;
     private bool updatePower;
     [SerializeField] float powerUsage;
+
+    void Start()
+    {
+        startHP = health;
+    }
 
     void Update()
     {
@@ -41,11 +47,11 @@ public class navigationOrb : MonoBehaviour, IDamage, IInteractable
             navigationMenu.SetActive(false);
         }
 
-        if (health < 100 && healthIndicator.gameObject.activeSelf != true)
+        if (health < startHP && healthIndicator.gameObject.activeSelf != true)
         {
             healthIndicator.gameObject.SetActive(true);
         }
-        else if (health >= 100 && healthIndicator.gameObject.activeSelf != false)
+        else if (health >= startHP && healthIndicator.gameObject.activeSelf != false)
         {
             healthIndicator.gameObject.SetActive(false);
         }
@@ -87,7 +93,11 @@ public class navigationOrb : MonoBehaviour, IDamage, IInteractable
     public void takeDamage(int amount)
     {
         health -= amount;
-        healthBar.fillAmount = health / 100;
+        healthBar.fillAmount = health / startHP;
+        if (health <= 0)
+        {
+            toggleEnabled();
+        }
     }
 
     //The function used to trigger the interaction when an object is interacted with.
@@ -109,7 +119,7 @@ public class navigationOrb : MonoBehaviour, IDamage, IInteractable
     private IEnumerator repairComponent(int timeToRepair)
     {
         yield return new WaitForSeconds(timeToRepair);
-        health = 100;
+        health = startHP;
     }
 
     public void repair(int experience = 0, int modifier = 0)
@@ -121,6 +131,7 @@ public class navigationOrb : MonoBehaviour, IDamage, IInteractable
         }
 
         StartCoroutine(repairComponent((int)(baseRepairTime - (baseRepairTime * timeReduction) + modifier)));
+        toggleEnabled();
     }
 
     public void man()
@@ -151,5 +162,10 @@ public class navigationOrb : MonoBehaviour, IDamage, IInteractable
     public void back()
     {
         gamemanager.instance.toggleInteractionMenu(false);
+    }
+
+    public bool amIEnabled()
+    {
+        return isDisabled;
     }
 }
