@@ -10,6 +10,7 @@ using Unity.PlasticSCM.Editor.WebApi;
 using UnityEditor;
 using System.IO;
 using UnityEngine.XR;
+using Unity.VisualScripting;
 
 [System.Serializable]
 public class crewMember : MonoBehaviour, IDamage
@@ -28,15 +29,29 @@ public class crewMember : MonoBehaviour, IDamage
     public int startHealth;
     public TMP_Text crewStability;
 
+    [Header("--- Shootie Gat ---")]
+    [SerializeField] GameObject bullet;
+    [SerializeField] Transform shootPos;
+    [SerializeField] Transform headPos;
+    [SerializeField] int targetFaceSpeed;
+    [SerializeField] int shootAngle;
+    [SerializeField] float shootRate;
+
+    GameObject targetLock;
+    bool isShooting;
+    bool isDead;
     bool isSelected;
     GameObject inGameWaypointMarker;
     public IInteractable selectedInteraction;
+    private Vector3 enemyDirection;
+    private float angleToEnemy;
 
     public static List<crewMember> list = new List<crewMember>();
 
 
     private void Start()
     {
+        isDead = false;
         startHealth = health;
         stabilityCrew();
         // This is to take damage WITHOUT killing to test healing.
@@ -109,6 +124,37 @@ public class crewMember : MonoBehaviour, IDamage
             selectedInteraction = null;
         }
     }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if(other.isTrigger)
+        {
+            return;
+        }
+        if (other.CompareTag("Enemy"))
+        {
+            if (targetLock == null)
+            {
+                targetLock = other.gameObject;
+            }
+            else if (targetLock != null)
+            {
+                enemyDirection = targetLock.transform.position - (transform.position - Vector3.down).normalized;
+                angleToEnemy = Vector3.Angle(new Vector3(enemyDirection.x, 0, enemyDirection.z), transform.forward);
+                
+                transform.LookAt(enemyDirection);
+
+                if(!isShooting)
+                {
+                    StartCoroutine(shoot());
+                }
+            }
+            else 
+            {
+
+            }
+        }
+    }
     public void takeDamage(int amount)
     {
         health -= amount;
@@ -117,6 +163,7 @@ public class crewMember : MonoBehaviour, IDamage
 
         if (health <= 0)
         {
+            isDead = true;
             StartCoroutine(killCrew());
         }
         
@@ -219,6 +266,14 @@ public class crewMember : MonoBehaviour, IDamage
         File.WriteAllText(Application.persistentDataPath + "/save.txt", json);
     }
 
+    
+    IEnumerator shoot()
+    {
+        isShooting = true;
+        Instantiate(bullet, shootPos.position, transform.rotation);
+        yield return new WaitForSeconds(shootRate);
+        isShooting = false;
+    }
 
     //Function for damage testing.
 

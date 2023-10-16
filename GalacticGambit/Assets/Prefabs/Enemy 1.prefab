@@ -47,17 +47,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1175974366091629814, guid: 7c0b0634fadf63b49ab501d14e542ab4, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     - target: {fileID: 1952933689917378124, guid: 7c0b0634fadf63b49ab501d14e542ab4, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 15.921862
+      value: 13.512483
       objectReference: {fileID: 0}
     - target: {fileID: 1952933689917378124, guid: 7c0b0634fadf63b49ab501d14e542ab4, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -5.783397
+      value: -6.3631897
       objectReference: {fileID: 0}
     - target: {fileID: 1952933689917378124, guid: 7c0b0634fadf63b49ab501d14e542ab4, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 32.5
+      value: -9.047319
       objectReference: {fileID: 0}
     - target: {fileID: 1952933689917378124, guid: 7c0b0634fadf63b49ab501d14e542ab4, type: 3}
       propertyPath: m_LocalRotation.w
@@ -144,9 +148,10 @@ MonoBehaviour:
   headPos: {fileID: 421237068239074292}
   bullet: {fileID: 2974476097367970340, guid: 53516cc88b5d22d47a3cbe24540bc7fc, type: 3}
   collide: {fileID: 9163070180832844936}
+  roamDistance: 20
+  roamPauseTime: 3
   healthPoints: 5
   targetFaceSpeed: 3
-  viewAngle: 180
   shootAngle: 2
   shootRate: 2
   animChangeSpeed: 2

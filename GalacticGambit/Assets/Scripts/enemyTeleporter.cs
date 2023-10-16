@@ -15,7 +15,6 @@ public class enemyTeleporter : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("Tag: " + other.tag);
         if (other.CompareTag("Enemy Ship"))
         {
             teleport();

@@ -55,11 +55,11 @@ public class enemyAIOnBoard : MonoBehaviour, IDamage
         }
         float agentVelocity = agent.velocity.normalized.magnitude;
 
-        if (playerInRange && !canSeePlayer())
+        if (playerInRange && !canSeePlayer() && targetLock == null && !isRoaming)
         {
             StartCoroutine(roam());
         }
-        else if (!playerInRange)
+        else if (!playerInRange && targetLock == null && !isRoaming)
         {
             StartCoroutine(roam());
         }
@@ -69,7 +69,7 @@ public class enemyAIOnBoard : MonoBehaviour, IDamage
     {
         if (!isDead)
         {
-            if(gamemanager.instance.player != null)
+            if (gamemanager.instance.player != null)
             {
                 playerDirection = gamemanager.instance.player.transform.position - (transform.position - Vector3.down);
                 angleToPlayer = Vector3.Angle(new Vector3(playerDirection.x, 0, playerDirection.z), transform.forward);
@@ -159,71 +159,66 @@ public class enemyAIOnBoard : MonoBehaviour, IDamage
 
     IEnumerator DeathCleanup()
     {
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(.5f);
         Destroy(gameObject);
     }
-    
+
     void OnTriggerStay(Collider other)
     {
-        if(targetLock == null && other.CompareTag("Interactable"))
+        if (targetLock == null && other.CompareTag("Interactable") && !canSeePlayer())
         {
             targetLock = other.gameObject;
         }
-        
-        
-            
-            if (other.CompareTag("Crew Mate") && canSeePlayer())
-            {
-            Debug.Log(1);
-                isRoaming = false;
-                targetLock = null;
-                gamemanager.instance.player = other.gameObject;
-            }
-            else if (other.CompareTag("Interactable") && !canSeePlayer() && targetLock != null && agent.remainingDistance <= agent.stoppingDistance && !targetLock.GetComponent<IInteractable>().amIEnabled())
-            {
-            Debug.Log(2);
+        //else
+        //{
+        //    targetLock = null;
+        //}
+
+
+
+        if (other.CompareTag("Crew Mate") && canSeePlayer())
+        {
+            isRoaming = false;
+            targetLock = null;
+            gamemanager.instance.player = other.gameObject;
+        }
+        else if (other.CompareTag("Interactable") && !canSeePlayer() && targetLock != null && !targetLock.GetComponent<IInteractable>().amIEnabled())
+        {
             isRoaming = false;
             agent.SetDestination(targetLock.transform.position);
-                agent.stoppingDistance = stoppingDistOrig;
+            //agent.stoppingDistance = stoppingDistOrig;
 
-                playerDirection = targetLock.transform.position - (transform.position - Vector3.down);
-                angleToPlayer = Vector3.Angle(new Vector3(playerDirection.x, 0, playerDirection.z), transform.forward);
+            playerDirection = targetLock.transform.position - (transform.position - Vector3.down);
+            angleToPlayer = Vector3.Angle(new Vector3(playerDirection.x, 0, playerDirection.z), transform.forward);
+            faceTarget();
 
-                faceTarget();
-
-                if (!isShooting && angleToPlayer <= shootAngle)
-                {
-                Debug.Log(3);
-                StartCoroutine(shoot());
-                    //StartCoroutine(playAudioClip(audio));
-                }
-
-            }
-            else if (targetLock == null && !isRoaming)
+            if (!isShooting && angleToPlayer <= shootAngle)
             {
+                StartCoroutine(shoot());
 
-            Debug.Log(4);
+                //StartCoroutine(playAudioClip(audio));
+            }
+        }
+        if (targetLock == null && !isRoaming && !canSeePlayer())
+        {
             isRoaming = true;
             agent.stoppingDistance = 0;
-                StartCoroutine(roam());
-            }
-            
+            StartCoroutine(roam());
+        }
         if (targetLock != null && targetLock.GetComponent<IInteractable>().amIEnabled())
         {
-            Debug.Log(5);
             targetLock = null;
         }
-
     }
     IEnumerator roam()
     {
-
-        if (agent.remainingDistance < 0.05f && !destinationChosen)
+        isRoaming = true;
+        if (agent.remainingDistance < 1f && !destinationChosen)
         {
             destinationChosen = true;
             agent.stoppingDistance = 0;
-            yield return new WaitForSeconds(roamPauseTime);
-            //isRoaming = false;
+
+
 
             Vector3 randomPosition = Random.insideUnitSphere * roamDistance;
             //randomPosition += startingPosition;
@@ -233,8 +228,11 @@ public class enemyAIOnBoard : MonoBehaviour, IDamage
             agent.SetDestination(hit.position);
 
             destinationChosen = false;
+            yield return new WaitForSeconds(roamPauseTime);
+            
 
         }
+        isRoaming = false;
     }
 
 }
