@@ -23,4 +23,4 @@ MonoBehaviour:
   isEquipable: 1
   isShipRoom: 0
   roomPrefab: {fileID: 0}
-  equipment: {fileID: 0}
+  equipment: {fileID: 11400000, guid: ffb15ae933ab2cf43bc7b30c36b07cde, type: 2}

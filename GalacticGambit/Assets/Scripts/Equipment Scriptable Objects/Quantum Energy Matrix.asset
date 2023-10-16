@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Quantum Energy Matrix
   m_EditorClassIdentifier: 
   itemName: Quantum Energy Matrix
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: 4df0a44c961173545804c94ea51565ec, type: 3}
   price: 650000
   description: The Quantum Energy Matrix uses advanced quantum principles to store
     and release energy more efficiently. This upgrade increases your ship's battery
@@ -23,4 +23,4 @@ MonoBehaviour:
   isEquipable: 1
   isShipRoom: 0
   roomPrefab: {fileID: 0}
-  equipment: {fileID: 0}
+  equipment: {fileID: 11400000, guid: 2d850f37404af244197cdc58c84ece2d, type: 2}

@@ -64,21 +64,18 @@ public class shipManager : MonoBehaviour, IDamage
 
     private void Start()
     {
+        stabilityHull();
     }
 
 
     void Update()
     {
-        if (!checkShipIsRunning)
-        {
-            StartCoroutine(checkShip());
-        }
-        
+            StartCoroutine(checkShip());  
     }
 
     IEnumerator checkShip()
     {
-        checkShipIsRunning = true;
+        //checkShipIsRunning = true;
         ////Apply bonus for manned system.
         //if (pilotSeat.amIManned())
         //{
@@ -123,7 +120,7 @@ public class shipManager : MonoBehaviour, IDamage
         reservePowerText.text = reservePower.ToString() + " / " +  reservePowerCapacity.ToString() + " GW";
 
         yield return new WaitForSeconds(1);
-        checkShipIsRunning = false;
+        //checkShipIsRunning = false;
     }
     /*|**************************|
      *| --- Power Generation --- |
@@ -186,6 +183,7 @@ public class shipManager : MonoBehaviour, IDamage
     {
         //Debug.Log("Take damage");
         health -= amount;
+        stabilityHull();
 
         if(health <= 0)
         {

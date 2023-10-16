@@ -31,11 +31,14 @@ public class shield : MonoBehaviour, IDamage
         {
             StartCoroutine(regenShieldUI());
         }
+        stabilityShield();
     }
 
     public void takeDamage(int amount)
     {
         currentHealth -= amount;
+        stabilityShield();
+
         if (currentHealth <= 0)
         {
             Debug.Log("Shield: Regenerating!");

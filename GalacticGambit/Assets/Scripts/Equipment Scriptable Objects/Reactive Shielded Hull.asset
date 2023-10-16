@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Reactive Shielded Hull
   m_EditorClassIdentifier: 
   itemName: Reactive Shielded Hull
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: 7facdc51c6ba5c641bec5f30a4b88d0e, type: 3}
   price: 750000
   description: The Reactive Shielded Hull upgrade combines a layer of energy shielding
     with the hull structure. When the hull takes damage, the energy shield responds

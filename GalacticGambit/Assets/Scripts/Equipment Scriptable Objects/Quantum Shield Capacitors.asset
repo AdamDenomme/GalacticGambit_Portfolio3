@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Quantum Shield Capacitors
   m_EditorClassIdentifier: 
   itemName: Quantum Shield Capacitors
-  sprite: {fileID: 0}
-  price: 0
+  sprite: {fileID: 21300000, guid: cca3eb38b43cfdf489035e78fc66ad41, type: 3}
+  price: 700000
   description: Quantum Shield Capacitors incorporate quantum technology to boost
     your shield's recharge rate significantly. By manipulating quantum particles,
     this upgrade enables your shields to regenerate at an accelerated pace, ensuring
@@ -23,4 +23,4 @@ MonoBehaviour:
   isEquipable: 1
   isShipRoom: 0
   roomPrefab: {fileID: 0}
-  equipment: {fileID: 0}
+  equipment: {fileID: 11400000, guid: 969fde6ee9c016b4e9e710f8d7125fb1, type: 2}

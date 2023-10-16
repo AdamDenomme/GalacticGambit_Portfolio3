@@ -12,4 +12,9 @@ public class MainMenuSceneLoader : MonoBehaviour
         gamemanager.instance.stateUnpause();
         
     }
+
+    public void quitOut()
+    {
+        Application.Quit();
+    }
 } 

@@ -145,7 +145,7 @@ public class turretController : MonoBehaviour
 
     public void updateAmmoUI()
     {
-        ammo.text = "Ammunition: " + currentAmmo.ToString() + "/" + maxAmmo.ToString();
+        ammo.text = currentAmmo.ToString() + "/" + maxAmmo.ToString();
         shipManager.instance.ammoTotal = currentAmmo;
         shipManager.instance.missleTotal = missleAmmo;
     }

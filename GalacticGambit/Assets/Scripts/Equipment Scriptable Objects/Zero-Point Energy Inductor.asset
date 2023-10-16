@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Zero-Point Energy Inductor
   m_EditorClassIdentifier: 
   itemName: Zero-Point Energy Inductor
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: 4f864f7080bcf63409034501de8af649, type: 3}
   price: 980000
   description: The Zero-Point Energy Inductor harnesses zero-point energy, a theoretical
     energy source from the vacuum of space. By tapping into this boundless energy
@@ -22,4 +22,4 @@ MonoBehaviour:
   isEquipable: 1
   isShipRoom: 0
   roomPrefab: {fileID: 0}
-  equipment: {fileID: 0}
+  equipment: {fileID: 11400000, guid: df35ced4d8e6f05439edb7f289d1d5cc, type: 2}
