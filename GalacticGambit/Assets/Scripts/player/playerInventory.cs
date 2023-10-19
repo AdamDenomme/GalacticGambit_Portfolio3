@@ -32,6 +32,7 @@ public class playerInventory : MonoBehaviour, IInventory
     [SerializeField] List<inventorySlot> powerUpgradesUI;
     [SerializeField] GameObject tooManyUpgradesUI;
     [SerializeField] GameObject notEquipableItemUI;
+    [SerializeField] GameObject cannotPurchaseFromOwnInventoryUI;
 
     public int money;
     public GameObject hoverMenu;
@@ -144,33 +145,40 @@ public class playerInventory : MonoBehaviour, IInventory
     {
         if(selectedInventorySlot != null)
         {
-            if(hasEnough((int)selectedInventorySlot.price) && selectedInventorySlot.canBuy)
-            {
-                money -= (int)selectedInventorySlot.price;
-                addItem(selectedInventorySlot.inventoryItem);
-                StartCoroutine(itemPurchased());
-
-                foreach (inventorySlot slot in playerInventorySlotsForShop)
+                if (!playerInventorySlotsForShop.Contains(selectedInventorySlot))
                 {
-                    slot.clearSlot();
-                }
-
-                int k = 0;
-                foreach (inventorySlot slot in playerInventorySlotsForShop)
-                {
-                    if (k < items.Count)
+                    if(hasEnough((int)selectedInventorySlot.price) && selectedInventorySlot.canBuy)
                     {
-                        Item item = items[k].Key;
-                        Debug.Log(slot.gameObject.name);
-                        slot.updateItemInSlot(item.itemName, item.description, item.price, item.sprite, items[k].Value, item);
-                        k++;
+                        money -= (int)selectedInventorySlot.price;
+                        addItem(selectedInventorySlot.inventoryItem);
+                        StartCoroutine(itemPurchased());
+
+                        foreach (inventorySlot slot in playerInventorySlotsForShop)
+                        {
+                            slot.clearSlot();
+                        }
+
+                        int k = 0;
+                        foreach (inventorySlot slot in playerInventorySlotsForShop)
+                        {
+                            if (k < items.Count)
+                            {
+                                Item item = items[k].Key;
+                                Debug.Log(slot.gameObject.name);
+                                slot.updateItemInSlot(item.itemName, item.description, item.price, item.sprite, items[k].Value, item);
+                                k++;
+                            }
+                        }
+                    }
+                    else
+                    {
+                        StartCoroutine(notEnoughMoney());
                     }
                 }
-            }
-            else
-            {
-                StartCoroutine(notEnoughMoney());
-            }
+                else
+                {
+                    StartCoroutine(cannotPurchaseFromOwnInventory());
+                }
         }
         else
         {
@@ -250,6 +258,13 @@ public class playerInventory : MonoBehaviour, IInventory
         notEnoughMoneyUI.SetActive(true);
         yield return new WaitForSeconds(2);
         notEnoughMoneyUI.SetActive(false);
+    }
+
+    IEnumerator cannotPurchaseFromOwnInventory()
+    {
+        cannotPurchaseFromOwnInventoryUI.SetActive(true);
+        yield return new WaitForSeconds(2);
+        cannotPurchaseFromOwnInventoryUI.SetActive(false);
     }
     IEnumerator noItemSelected()
     {

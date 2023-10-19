@@ -171,6 +171,7 @@ public class crewMember : MonoBehaviour, IDamage
     IEnumerator killCrew()
     {
         yield return new WaitForSeconds(1);
+        Destroy(inGameWaypointMarker);
         Destroy(gameObject);
     }
     IEnumerator flashDamage()

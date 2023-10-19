@@ -39,45 +39,43 @@ public class topDownPlayerController : MonoBehaviour
         crewMemberControl();
         rotate();
     }
-
     void movement()
     {
         float horizontalInput = Input.GetAxis("Horizontal");
         float verticalInput = Input.GetAxis("Vertical");
 
-        if(Mathf.Approximately(horizontalInput, 0f) && Mathf.Approximately(verticalInput, 0f))
+        if (Input.GetButton("Horizontal") || Input.GetButton("Vertical"))
         {
-            horizontalInput = 0f;
-            verticalInput = 0f;
-        }
-        if(transform.position.x + verticalInput >= heightMaxLimitation)
-        {
-            verticalInput = -1f;
-        }
-        if(transform.position.x + verticalInput <= heightMinLimitation)
-        {
-            verticalInput = 1f;
-        }
-        if(transform.position.z + horizontalInput >= widthMaxLimitation)
-        {
-            horizontalInput = 1f;
-        }
-        if(transform.position.z + horizontalInput <= widthMinLimitation)
-        {
-            horizontalInput = -1f;
-        }
 
-        Vector3 cameraForward = camera.transform.forward;
-        Vector3 cameraRight = camera.transform.right;
+            if (transform.position.x + verticalInput >= heightMaxLimitation)
+            {
+                verticalInput = -1f;
+            }
+            if (transform.position.x + verticalInput <= heightMinLimitation)
+            {
+                verticalInput = 1f;
+            }
+            if (transform.position.z + horizontalInput >= widthMaxLimitation)
+            {
+                horizontalInput = 1f;
+            }
+            if (transform.position.z + horizontalInput <= widthMinLimitation)
+            {
+                horizontalInput = -1f;
+            }
 
-        cameraForward.y = 0;
-        cameraForward.Normalize();
-        
-        Vector3 moveDirection = (cameraForward * verticalInput + cameraRight * horizontalInput).normalized;
+            Vector3 cameraForward = camera.transform.forward;
+            Vector3 cameraRight = camera.transform.right;
 
-        Vector3 moveTo = transform.position + moveDirection * cameraSensitivity * Time.deltaTime;
+            cameraForward.y = 0;
+            cameraForward.Normalize();
 
-        transform.position = moveTo;
+            Vector3 moveDirection = (cameraForward * verticalInput + cameraRight * horizontalInput).normalized;
+
+            Vector3 moveTo = transform.position + moveDirection * cameraSensitivity * Time.deltaTime;
+
+            transform.position = moveTo;
+        }
     }
 
     void rotate()
@@ -101,9 +99,9 @@ public class topDownPlayerController : MonoBehaviour
     {
         float scroll = Input.GetAxis("Mouse ScrollWheel");
 
-        camera.orthographicSize += zoomSpeed * -scroll;
+        camera.transform.position += new Vector3(0, zoomSpeed * -scroll, 0);
 
-        camera.orthographicSize = Mathf.Clamp(camera.orthographicSize, minFieldOfView, maxFieldOfView);
+        camera.transform.position = new Vector3(transform.position.x, Mathf.Clamp(camera.transform.position.y, minFieldOfView, maxFieldOfView), transform.position.z);
     }
 
     void crewMemberControl()
@@ -165,6 +163,10 @@ public class topDownPlayerController : MonoBehaviour
                     
                 }
             }
+        }
+        if(selectedCrewMember.health <= 0)
+        {
+            selectedCrewMember = null;
         }
     }
     

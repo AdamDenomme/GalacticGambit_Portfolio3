@@ -163,7 +163,15 @@ public class shipManager : MonoBehaviour, IDamage
     }
     void drawReservePower(float amount)
     {
-        reservePower -= amount;
+        if(reservePower - amount < reservePowerCapacity)
+        {
+            reservePower = 0;
+        }
+        else
+        {
+            reservePower -= amount;
+        }
+        
     }
     void updatePowerUI()
     {
