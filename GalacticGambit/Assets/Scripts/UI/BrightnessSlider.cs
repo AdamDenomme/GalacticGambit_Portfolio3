@@ -14,7 +14,9 @@ public class BrightnessSlider : MonoBehaviour
         try
         {
             gameLight.intensity = brightSlider.value;
-        }catch(Exception e)
+            PlayerPrefs.Save();
+        }
+        catch(Exception e)
         {
 
         }

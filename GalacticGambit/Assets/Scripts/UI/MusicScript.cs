@@ -8,8 +8,11 @@ public class MusicScript : MonoBehaviour
     [SerializeField] Slider musicSlider;
     [SerializeField] AudioSource musicSource;
 
+
     public void changeMusicVol()
     {
         musicSource.volume = musicSlider.value;
+        PlayerPrefs.Save();
     }
+
 }
