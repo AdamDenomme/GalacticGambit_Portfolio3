@@ -100,12 +100,13 @@ public class gamemanager : MonoBehaviour
         //
         void Update()
         {
-          //if (activeMenu == null)
-          //  {
-          //      statePause();
-          //      activeMenu = pauseMenu;
-          //      activeMenu.SetActive(isPaused);
-          //  }
+          if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                isPaused = !isPaused;
+                Time.timeScale = isPaused ? 0 : 1;
+                pauseMenu.SetActive(isPaused);
+            }
+
         }
            //Enter pause state
            public void statePause()
