@@ -20,7 +20,7 @@ public class crewMember : MonoBehaviour, IDamage
     [SerializeField] GameObject selectedIndicator;
     [SerializeField] GameObject waypointMarker;
     [SerializeField] Renderer model;
-    private Vector3 medBay = new Vector3(-1, -6.5f ,3);
+    private Vector3 medBay = new Vector3(-1, -6.5f, 3);
 
     [Header("--- Stats ---")]
     public int repairExperience;
@@ -37,14 +37,12 @@ public class crewMember : MonoBehaviour, IDamage
     [SerializeField] int shootAngle;
     [SerializeField] float shootRate;
 
-    GameObject targetLock;
-    bool isShooting;
+    public GameObject targetLock;
+    public bool isShooting = false;
     bool isDead;
     bool isSelected;
     GameObject inGameWaypointMarker;
     public IInteractable selectedInteraction;
-    private Vector3 enemyDirection;
-    private float angleToEnemy;
 
     public static List<crewMember> list = new List<crewMember>();
 
@@ -62,7 +60,7 @@ public class crewMember : MonoBehaviour, IDamage
     {
         if (inGameWaypointMarker != null)
         {
-            if((agent.destination - transform.position).magnitude < .2f)
+            if ((agent.destination - transform.position).magnitude < .2f)
             {
                 Destroy(inGameWaypointMarker);
                 inGameWaypointMarker = null;
@@ -76,7 +74,7 @@ public class crewMember : MonoBehaviour, IDamage
 
     public void moveTo(Vector3 position)
     {
-        if(inGameWaypointMarker != null)
+        if (inGameWaypointMarker != null)
         {
             agent.SetDestination(position);
             Destroy(inGameWaypointMarker);
@@ -111,50 +109,20 @@ public class crewMember : MonoBehaviour, IDamage
         IInteractable interactable;
         if(other.TryGetComponent(out interactable))
         {
-            Debug.Log("Interactable!");
+            //Debug.Log("Interactable!");
             interactable.onInteractable(true);
             selectedInteraction = interactable;
         }
     }
     private void OnTriggerExit(Collider other)
     {
-        if(selectedInteraction != null)
+        if (selectedInteraction != null)
         {
             selectedInteraction.onInteractable(false);
             selectedInteraction = null;
         }
     }
 
-    private void OnTriggerStay(Collider other)
-    {
-        if(other.isTrigger)
-        {
-            return;
-        }
-        if (other.CompareTag("Enemy"))
-        {
-            if (targetLock == null)
-            {
-                targetLock = other.gameObject;
-            }
-            else if (targetLock != null)
-            {
-                enemyDirection = targetLock.transform.position - (transform.position - Vector3.down).normalized;
-                angleToEnemy = Vector3.Angle(new Vector3(enemyDirection.x, 0, enemyDirection.z), transform.forward);
-                
-                transform.LookAt(enemyDirection);
-
-                if(!isShooting)
-                {
-                    StartCoroutine(shoot());
-                }
-            }
-            else 
-            {
-
-            }
-        }
-    }
     public void takeDamage(int amount)
     {
         health -= amount;
@@ -166,7 +134,7 @@ public class crewMember : MonoBehaviour, IDamage
             isDead = true;
             StartCoroutine(killCrew());
         }
-        
+
     }
     IEnumerator killCrew()
     {
@@ -224,7 +192,7 @@ public class crewMember : MonoBehaviour, IDamage
             inGameWaypointMarker = Instantiate(waypointMarker, medBay, Quaternion.identity);
             inGameWaypointMarker.transform.parent = null;
         }
-        
+
         Destroy(inGameWaypointMarker);
     }
 
@@ -267,13 +235,17 @@ public class crewMember : MonoBehaviour, IDamage
         File.WriteAllText(Application.persistentDataPath + "/save.txt", json);
     }
 
-    
-    IEnumerator shoot()
+
+    public IEnumerator shoot()
     {
         isShooting = true;
-        Instantiate(bullet, shootPos.position, transform.rotation);
+        Instantiate(bullet, shootPos.position, shootPos.rotation);
         yield return new WaitForSeconds(shootRate);
         isShooting = false;
+    }
+    public void lookAtEnemy()
+    {
+        transform.LookAt(targetLock.transform.position);
     }
 
     //Function for damage testing.

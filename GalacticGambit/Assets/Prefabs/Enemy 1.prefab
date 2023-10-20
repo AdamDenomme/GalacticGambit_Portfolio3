@@ -53,15 +53,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1952933689917378124, guid: 7c0b0634fadf63b49ab501d14e542ab4, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 13.512483
+      value: 5.93
       objectReference: {fileID: 0}
     - target: {fileID: 1952933689917378124, guid: 7c0b0634fadf63b49ab501d14e542ab4, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -6.3631897
+      value: -5.22
       objectReference: {fileID: 0}
     - target: {fileID: 1952933689917378124, guid: 7c0b0634fadf63b49ab501d14e542ab4, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -9.047319
+      value: 5.54
       objectReference: {fileID: 0}
     - target: {fileID: 1952933689917378124, guid: 7c0b0634fadf63b49ab501d14e542ab4, type: 3}
       propertyPath: m_LocalRotation.w
@@ -110,10 +110,10 @@ PrefabInstance:
       addedObject: {fileID: 9163070180832844936}
     - targetCorrespondingSourceObject: {fileID: 1175974366091629814, guid: 7c0b0634fadf63b49ab501d14e542ab4, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 7432323597746366347}
+      addedObject: {fileID: 1022004494293494468}
     - targetCorrespondingSourceObject: {fileID: 1175974366091629814, guid: 7c0b0634fadf63b49ab501d14e542ab4, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1022004494293494468}
+      addedObject: {fileID: 1556152489989783905}
   m_SourcePrefab: {fileID: 100100000, guid: 7c0b0634fadf63b49ab501d14e542ab4, type: 3}
 --- !u!4 &421237068239074292 stripped
 Transform:
@@ -150,7 +150,7 @@ MonoBehaviour:
   collide: {fileID: 9163070180832844936}
   roamDistance: 20
   roamPauseTime: 3
-  healthPoints: 5
+  healthPoints: 3
   targetFaceSpeed: 3
   shootAngle: 2
   shootRate: 2
@@ -199,28 +199,7 @@ CapsuleCollider:
   m_Radius: 0.5
   m_Height: 2
   m_Direction: 1
-  m_Center: {x: 0, y: 0.5, z: 0}
---- !u!135 &7432323597746366347
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2016707343018674101}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Radius: 6
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!54 &1022004494293494468
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -248,6 +227,27 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!65 &1556152489989783905
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2016707343018674101}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 10, y: 2, z: 10}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!137 &4116417332063582231 stripped
 SkinnedMeshRenderer:
   m_CorrespondingSourceObject: {fileID: 3642670000533056340, guid: 7c0b0634fadf63b49ab501d14e542ab4, type: 3}

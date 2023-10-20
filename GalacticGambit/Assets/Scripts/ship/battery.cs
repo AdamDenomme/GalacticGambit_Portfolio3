@@ -80,7 +80,7 @@ public class battery : MonoBehaviour, IInteractable, IDamage
         }
         else
         {
-            Debug.Log("Interaction Off");
+            //Debug.Log("Interaction Off");
             gamemanager.instance.interactionMenu.gameObject.SetActive(false);
             interactable = false;
             gamemanager.instance.interactionMenu.clearList();

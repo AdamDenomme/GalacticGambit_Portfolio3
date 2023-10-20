@@ -405,13 +405,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2780825675241121876}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.021716379, y: -0.0027462163, z: -0.005048695, w: 0.9997477}
-  m_LocalPosition: {x: 0.07, y: 0.194, z: 0.762}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0, y: 0.45, z: 0.896}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8444540294089084339}
-  m_LocalEulerAnglesHint: {x: 2.487, y: -0.327, z: -0.586}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3268674184524138307
 GameObject:
   m_ObjectHideFlags: 0
@@ -940,7 +940,7 @@ GameObject:
   - component: {fileID: 6544523600910960088}
   - component: {fileID: 7226649924790856414}
   - component: {fileID: 3314460594858419205}
-  - component: {fileID: 7191191537197410478}
+  - component: {fileID: 6808626535083905570}
   m_Layer: 0
   m_Name: Crew Member (1)
   m_TagString: Crew Mate
@@ -991,8 +991,10 @@ MonoBehaviour:
   shootPos: {fileID: 7220111561313398768}
   headPos: {fileID: 8167783188071066636}
   targetFaceSpeed: 3
-  shootAngle: 2
-  shootRate: 2
+  shootAngle: 4
+  shootRate: 1
+  targetLock: {fileID: 0}
+  isShooting: 0
 --- !u!95 &7306889316754590354
 Animator:
   serializedVersion: 5
@@ -1107,8 +1109,8 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0.9, z: 0}
---- !u!135 &7191191537197410478
-SphereCollider:
+--- !u!65 &6808626535083905570
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -1126,7 +1128,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 9
+  m_Size: {x: 15, y: 1, z: 15}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &5583612306446733472
 GameObject:
@@ -1202,6 +1204,8 @@ GameObject:
   m_Component:
   - component: {fileID: 8157328521775639665}
   - component: {fileID: 8588931297129859165}
+  - component: {fileID: 2799908324973020025}
+  - component: {fileID: 1762747430710752022}
   m_Layer: 0
   m_Name: Astronault_Mesh
   m_TagString: Untagged
@@ -1311,6 +1315,40 @@ SkinnedMeshRenderer:
     m_Center: {x: 0.0024269521, y: -0.10663724, z: 0.075935364}
     m_Extent: {x: 0.88048816, y: 1.0153877, z: 0.34277767}
   m_DirtyAABB: 0
+--- !u!114 &2799908324973020025
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6053802085344535669}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de31eed96095ea846896dd9c415845d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  crewMate: {fileID: 1465173419623151905}
+--- !u!65 &1762747430710752022
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6053802085344535669}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 15, y: 1, z: 15}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &6117931041588678706
 GameObject:
   m_ObjectHideFlags: 0
