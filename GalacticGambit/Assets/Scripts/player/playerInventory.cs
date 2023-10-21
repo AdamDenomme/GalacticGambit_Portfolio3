@@ -20,6 +20,8 @@ public class playerInventory : MonoBehaviour, IInventory
     [SerializeField] GameObject noItemSelectedUI;
     [SerializeField] GameObject itemPurchasedUI;
     [SerializeField] GameObject itemSoldUI;
+    [SerializeField] GameObject equipmentUI;
+
 
     [Header("--- Upgrades ---")]
     [SerializeField] List<Item> weaponUpgrades;
@@ -47,7 +49,7 @@ public class playerInventory : MonoBehaviour, IInventory
     float defaultPowerAvailable;
     float defaultBatteryCapacity;
 
-    bool firstUpgradeRun;
+    bool firstUpgradeRun = true;
 
     private void Start()
     {
@@ -306,27 +308,38 @@ public class playerInventory : MonoBehaviour, IInventory
             if(item.equipment.updatetype == Equipment.upgradeType.weaponUpgrade && weaponUpgrades.Count <= 6)
             {
                 weaponUpgrades.Add(item);
-            }else if (item.equipment.updatetype == Equipment.upgradeType.Shield &&  shieldUpgrades.Count <= 6)
+                removeItem(item, 1);
+                setUpgrades();
+            }
+            else if (item.equipment.updatetype == Equipment.upgradeType.Shield &&  shieldUpgrades.Count <= 6)
             {
                 shieldUpgrades.Add(item);
-            }else if (item.equipment.updatetype == Equipment.upgradeType.Hull &&  hullUpgrades.Count <= 6) 
-            { 
+                removeItem(item, 1);
+                setUpgrades();
+            }
+            else if (item.equipment.updatetype == Equipment.upgradeType.Hull &&  hullUpgrades.Count <= 6) 
+            {
                 hullUpgrades.Add(item);
-            }else if (item.equipment.updatetype == Equipment.upgradeType.Power && powerUpgrades.Count <= 6)
+                removeItem(item, 1);
+                setUpgrades();
+            }
+            else if (item.equipment.updatetype == Equipment.upgradeType.Power && powerUpgrades.Count <= 6)
             {
                 powerUpgrades.Add(item);
+                removeItem(item, 1);
+                setUpgrades();
             }
             else
             {
                 StartCoroutine(tooManyUpgrades());
             }
+            
         }
         else
         {
             StartCoroutine(notEquipable());
         }
-        removeItem(item, 1);
-        setUpgrades();
+        
     }
     public void setUpgrades()
     {
@@ -399,6 +412,18 @@ public class playerInventory : MonoBehaviour, IInventory
         {
             Item item = hullUpgrades[i];
             hullUpgradesUI[i].updateItemInSlot(item.itemName, item.description, item.price, item.sprite, 1, item);
+        }
+    }
+
+    public void toggleEquipmentMenu()
+    {
+        if(equipmentUI.activeSelf)
+        {
+            equipmentUI.SetActive(false);
+        }
+        else
+        {
+            equipmentUI.SetActive(true);
         }
     }
 }

@@ -164,7 +164,7 @@ public class topDownPlayerController : MonoBehaviour
                 }
             }
         }
-        if(selectedCrewMember.health <= 0)
+        if(selectedCrewMember != null && selectedCrewMember.health <= 0)
         {
             selectedCrewMember = null;
         }

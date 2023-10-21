@@ -177,7 +177,7 @@ public class turret : MonoBehaviour, IDamage, IInteractable
 
     public void updateAmmoUI()
     {
-        ammo.text = "Ammunition: " + currentAmmo.ToString() + "/" + maxAmmo.ToString();
+        //ammo.text = "Ammunition: " + currentAmmo.ToString() + "/" + maxAmmo.ToString();
     }
     public bool amIEnabled()
     {

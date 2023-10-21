@@ -106,6 +106,7 @@ public class crewMember : MonoBehaviour, IDamage
 
     private void OnTriggerEnter(Collider other)
     {
+        Debug.Log("Trigger Entered!:" + other.tag + " / " + other.name);
         IInteractable interactable;
         if(other.TryGetComponent(out interactable))
         {
