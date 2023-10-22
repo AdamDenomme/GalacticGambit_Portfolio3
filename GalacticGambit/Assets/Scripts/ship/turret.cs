@@ -54,13 +54,24 @@ public class turret : MonoBehaviour, IDamage, IInteractable
         {
             onInteract();
         }
-
         if (isSitting && Input.GetButtonDown("Cancel"))
         {
             Debug.Log("Stop Interaction");
             isManned = false;
             controller.isActive = false;
+        }
 
+        if (!interactable)
+        {
+            controller.isActive = false;
+        }
+        else if (interactable)
+        {
+            if(Input.GetButtonDown(interactionKeyCode))
+            {
+                isManned = true;
+                controller.isActive = true;
+            }
         }
 
         if (health < startHP && healthIndicator.gameObject.activeSelf != true)
