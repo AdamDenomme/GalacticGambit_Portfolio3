@@ -9,12 +9,6 @@ public class BrightnessSlider : MonoBehaviour
     [SerializeField] Slider brightSlider;
     [SerializeField] Light gameLight;
 
-
-    private void Awake()
-    {
-        brightSlider.value = PlayerPrefs.GetFloat("savedMusicSlider");
-    }
-
     void Update()
     {
         try

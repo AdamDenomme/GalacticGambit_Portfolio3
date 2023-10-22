@@ -60,11 +60,12 @@ public class shipManager : MonoBehaviour, IDamage
     {
         instance = this;
         health = maxHealth;
+        stabilityHull();
     }
 
     private void Start()
     {
-        stabilityHull();
+        //stabilityHull();
     }
 
 
