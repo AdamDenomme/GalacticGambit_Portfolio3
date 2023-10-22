@@ -104,13 +104,13 @@ public class crewMember : MonoBehaviour, IDamage
         }
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerStay(Collider other)
     {
-        Debug.Log("Trigger Entered!:" + other.tag + " / " + other.name);
+        //Debug.Log("Trigger Entered!:" + other.tag + " / " + other.name);
         IInteractable interactable;
         if(other.TryGetComponent(out interactable))
         {
-            //Debug.Log("Interactable!");
+            Debug.Log("Interactable!");
             interactable.onInteractable(true);
             selectedInteraction = interactable;
         }

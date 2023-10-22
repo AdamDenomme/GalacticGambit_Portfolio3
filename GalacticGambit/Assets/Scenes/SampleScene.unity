@@ -1443,6 +1443,10 @@ PrefabInstance:
       propertyPath: crewStability
       value: 
       objectReference: {fileID: 590353310}
+    - target: {fileID: 3314460594858419205, guid: 616f096993287ce40b8fe072a710efe4, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4170571265251808774, guid: 616f096993287ce40b8fe072a710efe4, type: 3}
       propertyPath: m_LocalPosition.x
       value: 13.32
@@ -3476,6 +3480,14 @@ PrefabInstance:
       propertyPath: ammo
       value: 
       objectReference: {fileID: 2096613262}
+    - target: {fileID: 1696967762260968286, guid: e495dce609bab984285914f5a4faf1e0, type: 3}
+      propertyPath: m_Size.y
+      value: 1.8350954
+      objectReference: {fileID: 0}
+    - target: {fileID: 1696967762260968286, guid: e495dce609bab984285914f5a4faf1e0, type: 3}
+      propertyPath: m_Center.y
+      value: 6.7927966
+      objectReference: {fileID: 0}
     - target: {fileID: 3137058512312697825, guid: e495dce609bab984285914f5a4faf1e0, type: 3}
       propertyPath: navigationMenu
       value: 
