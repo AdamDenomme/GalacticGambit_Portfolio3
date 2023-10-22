@@ -110,7 +110,7 @@ public class crewMember : MonoBehaviour, IDamage
         IInteractable interactable;
         if(other.TryGetComponent(out interactable))
         {
-            Debug.Log("Interactable!");
+            //Debug.Log("Interactable!");
             interactable.onInteractable(true);
             selectedInteraction = interactable;
         }

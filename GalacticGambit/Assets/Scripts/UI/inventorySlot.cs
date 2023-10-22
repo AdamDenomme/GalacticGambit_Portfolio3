@@ -22,11 +22,11 @@ public class inventorySlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
     public bool canBuy;
 
     Sprite icon = null;
-    string itemName = "";
-    string description = "";
+    public string itemName = "";
+    public string description = "";
     public float price = 0;
-    bool mouseOver;
-    bool isHoverMenuSpawned;
+    public bool mouseOver;
+    public bool isHoverMenuSpawned;
     int count = 0;
 
     bool isSelected;
@@ -43,19 +43,26 @@ public class inventorySlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
         {
             isHoverMenuSpawned = true;
             shipManager.instance.inventory.hoverMenu.gameObject.SetActive(true);
+            updateSlot();
         }
         else if (!mouseOver && isHoverMenuSpawned)
         {
             isHoverMenuSpawned = false;
             shipManager.instance.inventory.hoverMenu.gameObject.SetActive(false);
+            updateSlot();
         }
-        updateSlot();
+        
     }
 
     public void OnPointerEnter(PointerEventData eventData)
     {
         mouseOver = true;
         updateSlot();
+        //itemNameText.text = itemName;
+        //descriptionText.text = description;
+        //priceText.text = "$" + price.ToString();
+        //iconImage.sprite = icon;
+        //image.sprite = icon;
     }
 
     public void OnPointerExit(PointerEventData eventData)

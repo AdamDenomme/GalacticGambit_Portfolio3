@@ -27,7 +27,7 @@ public class turretController : MonoBehaviour
 
     GameObject selectTurret;
 
-    public bool isActive;
+    public bool isActive = false;
     bool isShooting;
     bool isMissling;
 
@@ -75,15 +75,15 @@ public class turretController : MonoBehaviour
             
             if (Input.GetButton("Tractor"))
             {
-                Debug.Log("Tractor");
+                //Debug.Log("Tractor");
                 Ray ray = new Ray(bulletSpawn.position, transform.forward);
-                Debug.DrawRay(bulletSpawn.position, transform.forward * 200f, Color.green);
+                //Debug.DrawRay(bulletSpawn.position, transform.forward * 200f, Color.green);
                 RaycastHit hit;
                 tractorParicle.gameObject.SetActive(true);
                 if(Physics.Raycast(ray, out hit, 200f))
                 {
                     hit.collider.transform.position = Vector3.MoveTowards(hit.collider.transform.position, bulletSpawn.position, tractorSpeed * Time.deltaTime);
-                    Debug.Log(Vector3.Distance(hit.collider.transform.position, bulletSpawn.position));
+                    //Debug.Log(Vector3.Distance(hit.collider.transform.position, bulletSpawn.position));
                     if(Vector3.Distance(hit.collider.transform.position, bulletSpawn.position) < 15f)
                     {
                         loot lootItem;

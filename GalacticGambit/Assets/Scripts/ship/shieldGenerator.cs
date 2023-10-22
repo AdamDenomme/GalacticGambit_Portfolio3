@@ -49,7 +49,7 @@ public class shieldGenerator : MonoBehaviour, IDamage, IInteractable
 
         if (isSitting && Input.GetButtonDown("Cancel"))
         {
-            Debug.Log("Stop Interaction");
+            //Debug.Log("Stop Interaction");
         }
 
         if (health < origHP && healthIndicator.gameObject.activeSelf != true)
@@ -63,13 +63,13 @@ public class shieldGenerator : MonoBehaviour, IDamage, IInteractable
 
         if (!isDisabled && updatePower)
         {
-            Debug.Log("Start drawing power: " + powerUsage);
+            //Debug.Log("Start drawing power: " + powerUsage);
             shipManager.instance.drawPower(powerUsage);
             updatePower = false;
         }
         if (isDisabled && updatePower)
         {
-            Debug.Log("Stop drawing power: " + powerUsage);
+            //Debug.Log("Stop drawing power: " + powerUsage);
             shipManager.instance.stopDrawingPower(powerUsage);
             updatePower = false;
         }
@@ -88,7 +88,7 @@ public class shieldGenerator : MonoBehaviour, IDamage, IInteractable
         }
         else
         {
-            Debug.Log("Interaction Off");
+            //Debug.Log("Interaction Off");
             gamemanager.instance.interactionMenu.gameObject.SetActive(false);
             interactable = false;
             gamemanager.instance.interactionMenu.clearList();
@@ -109,7 +109,7 @@ public class shieldGenerator : MonoBehaviour, IDamage, IInteractable
     //The function used to trigger the interaction when an object is interacted with.
     public void onInteract()
     {
-        Debug.Log("Interact");
+        //Debug.Log("Interact");
     }
 
     public bool isInteractable()
@@ -142,7 +142,7 @@ public class shieldGenerator : MonoBehaviour, IDamage, IInteractable
 
     public void man()
     {
-        Debug.Log("Man");
+        //Debug.Log("Man");
         if (!isDisabled)
         {
             //Toggle Navigation Menu

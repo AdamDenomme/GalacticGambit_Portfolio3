@@ -132,7 +132,7 @@ public class playerInventory : MonoBehaviour, IInventory
             {
                 Item item = items[i].Key;
                 inventorySlot iSlot = slot.GetComponent<inventorySlot>();
-                Debug.Log(iSlot.gameObject.name);
+                //Debug.Log(iSlot.gameObject.name);
                 iSlot.updateItemInSlot(item.itemName, item.description, item.price, item.sprite, items[i].Value, item);
                 i++;
             }
@@ -166,7 +166,7 @@ public class playerInventory : MonoBehaviour, IInventory
                             if (k < items.Count)
                             {
                                 Item item = items[k].Key;
-                                Debug.Log(slot.gameObject.name);
+                                //Debug.Log(slot.gameObject.name);
                                 slot.updateItemInSlot(item.itemName, item.description, item.price, item.sprite, items[k].Value, item);
                                 k++;
                             }
@@ -209,7 +209,7 @@ public class playerInventory : MonoBehaviour, IInventory
                     if (k < items.Count)
                     {
                         Item item = items[k].Key;
-                        Debug.Log(slot.gameObject.name);
+                        //Debug.Log(slot.gameObject.name);
                         slot.updateItemInSlot(item.itemName, item.description, item.price, item.sprite, items[k].Value, item);
                         k++;
                     }

@@ -27,7 +27,7 @@ public class turret : MonoBehaviour, IDamage, IInteractable
     [SerializeField] float health;
     private float startHP;
 
-    private bool isDisabled;
+    private bool isDisabled = false;
 
     private bool isManned;
     private bool updatePower;
@@ -42,6 +42,14 @@ public class turret : MonoBehaviour, IDamage, IInteractable
 
     void Update()
     {
+        if (isDisabled)
+        {
+            controller.isActive = false;
+        }
+        else
+        {
+            controller.isActive = true;
+        }
         if (interactable && Input.GetButtonDown(interactionKeyCode))
         {
             onInteract();
